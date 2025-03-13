@@ -1,9 +1,9 @@
-@import url('https://v1.fontapi.ir/css/SFProDisplay');
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-    font-family: 'SF Pro Display', sans-serif;
-    /* font-family: -apple-system, BlinkMacSystemFont, sans-serif; */
+    font-family: 'Figtree', sans-serif;
 }
