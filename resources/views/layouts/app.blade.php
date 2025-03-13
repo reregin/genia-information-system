@@ -62,14 +62,14 @@
         @yield('content')
     </main>
 
-    <footer class="bg-[#f5f8f9]">
+    <!-- <footer class="bg-[#f5f8f9]">
         <div class="max-w-full w-full mx-auto p-4 md:flex md:items-center md:justify-between border-t-2 border-gray-300"
             style="margin-top: 50px; margin-bottom: 0;">
             <span class="text-sm sm:text-center">
                 Copyright © 2025 UKM Genia
             </span>
         </div>
-    </footer>
+    </footer> -->
 
 </body>
 
