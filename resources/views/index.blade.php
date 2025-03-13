@@ -9,6 +9,10 @@
 @endsection
 
 @section('content')
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+</head>
+<body>
     <div class="relative min-h-[500px] overflow-hidden bg-white">
         <img 
             src="{{ asset('images/image1.png') }}" 
@@ -59,4 +63,72 @@
             </div>
         </div>
     </div>
+    <div class="flex flex-col justify-center items-center w-full mt-2">
+        <div class="w-full bg-orange-500 p-6 rounded-lg shadow-xl">
+            <h2 class="text-black text-center text-2xl font-semibold mb-4">Fokus Kompetisi Kami</h2>
+
+            <!-- Center the swiper -->
+            <div class="flex justify-center">
+                <div class="swiper mySwiper w-3/4">
+                    <div class="swiper-wrapper">
+                        <!-- Card Items -->
+                        <div class="swiper-slide flex justify-center">
+                            <div class="bg-orange-50 shadow-xl text-black text-center p-4 rounded-lg flex flex-col items-center justify-center w-72 h-28">
+                                <img src="{{ asset("images/logo_onmipa.png") }}" alt="ON-MIPA" class="w-full h-20 object-cover"> 
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide flex justify-center">
+                            <div class="bg-orange-50 shadow-xl text-black text-center p-4 rounded-lg flex flex-col items-center justify-center w-72 h-28">
+                                <img src="{{ asset("images/logo_pkm.png") }}" alt="PKM" class="w-full h-20 object-cover"> 
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide flex justify-center">
+                            <div class="bg-orange-50 shadow-xl text-black text-center p-4 rounded-lg flex flex-col items-center justify-center w-72 h-28">
+                                <img src="{{ asset("images/logo_gemastik2.png") }}" alt="GELATIK" class="w-full h-20 object-cover"> 
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide flex justify-center">
+                            <div class="bg-orange-50 shadow-xl text-black text-center p-4 rounded-lg flex flex-col items-center justify-center w-72 h-28">
+                                <img src={{ asset("images/logo_lidm.png") }} alt="COMPETE" class="w-full h-20 object-cover"> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="flex justify-center items-center w-full my-20">
+        <div class="w-1/2 mt-20">
+            <p>
+                Saya memandang dengan penuh harapan pada potensi luar biasa yang dimiliki oleh setiap mahasiswa Fakultas Teknik Universitas Sam Ratulangi
+            </p>
+            <p>
+                Mari bersama-sama kita wujudkan visi Fakultas Teknik Universitas Sam Ratulangi untuk menjadi pusat keunggulan di Indonesia Timur.    
+            </p>
+        </div>
+        <div>
+            <img src="{{ asset("images/image 1.png") }}" class="w-60">
+        </div>   
+    </div>
+    <div class="w-screen">
+        <img src="{{ asset("images/f.png") }}" class="w-screen">
+    </div>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 3,
+            spaceBetween: 8,
+            centeredSlides: true, // Center the active slide
+            loop: true,
+            autoplay: {
+                delay: 2000,
+                disableOnInteraction: false,
+            },
+        });
+    </script>
+    </body>
 @endsection

@@ -18,7 +18,7 @@
             <a class="flex flex-row items-center">
                 <div class=" w-[240px] h-[80px]">
                     <img 
-                        src="{{ asset('images/Logo Genia.svg') }}" 
+                        src="{{ asset('images/Group 3.png') }}" 
                         alt="UKM Genia Logo"
                         class="object-contain w-[560px] h-[80px]"
                     />
