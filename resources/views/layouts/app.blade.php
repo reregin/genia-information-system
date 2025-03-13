@@ -9,72 +9,7 @@
     @yield('style')
 </head>
 
-<body class="bg-lp-mobile-gradient lg:bg-lp-desktop-gradient overflow-x-hidden">
-    <div class="hidden lg:flex absolute top-0 left-0 w-full h-full" style="z-index: 1;">
-        <svg class="absolute top-0 left-0 w-full h-full" xmlns="http://www.w3.org/2000/svg" width="772" height="764"
-            viewBox="0 0 772 764" fill="none">
-            <g style="mix-blend-mode:multiply">
-                <path
-                    d="M688.44 -606C684.85 -598.276 681.304 -590.656 677.753 -583.103C623.873 -385.493 1012.29 542.506 512.44 727.5C-10.9368 921.201 -133.621 288.447 145.387 36.5217C541.934 -321.533 610.715 -440.521 677.753 -583.103C680.289 -592.405 683.805 -600.089 688.44 -606Z"
-                    fill="url(#paint0_linear_51_2195)" />
-            </g>
-            <defs>
-                <linearGradient id="paint0_linear_51_2195" x1="294.94" y1="-606" x2="925.323" y2="274.226"
-                    gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#0B63E5" />
-                    <stop offset="1" stop-color="white" stop-opacity="0" />
-                </linearGradient>
-            </defs>
-        </svg>
-
-        <svg class="absolute top-0 left-0 w-full h-full transform mt-[512px] ml-80" xmlns="http://www.w3.org/2000/svg"
-            width="946" height="764" viewBox="0 0 946 764" fill="none" style="flex-shrink: 0;">
-            <g style="mix-blend-mode:multiply">
-                <path
-                    d="M1394.26 616.615C1386.29 613.597 1378.44 610.614 1370.65 607.622C1169.64 568.265 272.364 1023.18 51.4882 538.117C-179.785 30.2234 442.365 -138.179 713.925 121.757C1099.89 491.198 1223.56 551.138 1370.65 607.622C1380.11 609.475 1388.03 612.422 1394.26 616.615Z"
-                    fill="url(#paint0_linear_51_2196)" />
-            </g>
-            <defs>
-                <linearGradient id="paint0_linear_51_2196" x1="1365.63" y1="224.158" x2="533.605" y2="916.922"
-                    gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#0B63E5" />
-                    <stop offset="1" stop-color="white" stop-opacity="0" />
-                </linearGradient>
-            </defs>
-        </svg>
-    </div>
-    <div class="flex lg:hidden absolute top-0 right-0 w-full h-full" style="z-index: 1;">
-        <svg class="absolute top-[33px] right-0" xmlns="http://www.w3.org/2000/svg" width="353" height="764"
-            viewBox="0 0 353 764" fill="none">
-            <g style="mix-blend-mode:multiply">
-                <path
-                    d="M1394.26 616.615C1386.29 613.597 1378.44 610.614 1370.65 607.622C1169.64 568.265 272.364 1023.18 51.4882 538.117C-179.785 30.2234 442.365 -138.179 713.925 121.757C1099.89 491.198 1223.56 551.138 1370.65 607.622C1380.11 609.475 1388.03 612.422 1394.26 616.615Z"
-                    fill="url(#paint0_linear_51_2553)" />
-            </g>
-            <defs>
-                <linearGradient id="paint0_linear_51_2553" x1="1365.63" y1="224.158" x2="533.605" y2="916.922"
-                    gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#0B63E5" />
-                    <stop offset="1" stop-color="white" stop-opacity="0" />
-                </linearGradient>
-            </defs>
-        </svg>
-        <svg class="absolute top-0 right-0" xmlns="http://www.w3.org/2000/svg" width="375" height="1370"
-            viewBox="0 0 375 1370" fill="none">
-            <g style="mix-blend-mode:multiply">
-                <path
-                    d="M688.44 0C684.85 7.72441 681.304 15.3436 677.753 22.8965C623.873 220.507 1012.29 1148.51 512.44 1333.5C-10.9368 1527.2 -133.621 894.447 145.387 642.522C541.934 284.467 610.715 165.479 677.753 22.8965C680.289 13.5948 683.805 5.91142 688.44 0Z"
-                    fill="url(#paint0_linear_51_2552)" />
-            </g>
-            <defs>
-                <linearGradient id="paint0_linear_51_2552" x1="294.94" y1="0.000107241" x2="925.323" y2="880.226"
-                    gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#0B63E5" />
-                    <stop offset="1" stop-color="white" stop-opacity="0" />
-                </linearGradient>
-            </defs>
-        </svg>
-    </div>
+<body class="overflow-x-hidden">
 
     <nav style="z-index: 2;" class="relative">
         <div class="max-w-full flex flex-wrap items-center justify-between mx-auto p-4">
@@ -131,10 +66,7 @@
         <div class="max-w-full w-full mx-auto p-4 md:flex md:items-center md:justify-between border-t-2 border-gray-300"
             style="margin-top: 50px; margin-bottom: 0;">
             <span class="text-sm sm:text-center">
-                Copyright © 2024 LAB FT UNSRAT * All rights reserved.
-            </span>
-            <span class="text-sm">
-                Version 1.0
+                Copyright © 2025 UKM Genia
             </span>
         </div>
     </footer>
