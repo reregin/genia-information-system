@@ -11,11 +11,21 @@
 
 <body class="overflow-x-hidden">
 
-    <nav style="z-index: 2;" class="relative">
-        <div class="max-w-full flex flex-wrap items-center justify-between mx-auto p-4">
-            <div class="flex items-center flex-shrink-0 text-black mr-6">
-                <span class="font-semibold text-xl tracking-tight">POKOKNYA LOGO</span>
-            </div>
+    <nav style="z-index: 2;" class="relative px-4">
+        <div class="max-w-full flex flex-wrap items-center justify-between mx-auto p-2">
+        <!--logo-->
+        <div class="items-center">
+            <a class="flex flex-row items-center">
+                <div class=" w-[240px] h-[80px]">
+                    <img 
+                        src="{{ asset('images/Logo Genia.svg') }}" 
+                        alt="UKM Genia Logo"
+                        class="object-contain w-[560px] h-[80px]"
+                    />
+                </div>
+            </a>
+        </div>
+
             <button data-collapse-toggle="navbar-default" type="button"
                 class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:focus:ring-gray-600"
                 aria-controls="navbar-default" aria-expanded="false">
@@ -26,7 +36,15 @@
                         d="M1 1h15M1 7h15M1 13h15" />
                 </svg>
             </button>
-            <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+         <!-- Navigation Links (Center Section) --> 
+        <div class="flex flex-row p-4 md:p-0 mt-4 md:space-x-8">
+            <a href="/" class="text-gray-700 hover:text-blue-700">Home</a>
+            <a href="/about-us" class="text-gray-700 hover:text-blue-700">About Us</a>
+            <a href="/awarded" class="text-gray-700 hover:text-blue-700">Awarded</a>
+            <a href="/blog" class="text-gray-700 hover:text-blue-700">Blog</a>
+        </div>
+
+            <!-- <div class="hidden w-full md:block md:w-auto" id="navbar-default">
                 <ul class="flex flex-col p-4 md:p-0 md:flex-row md:space-x-8">
                     <li>
                         <a href="/login"
@@ -43,7 +61,17 @@
                         </a>
                     </li>
                 </ul>
-            </div>
+            </div> -->
+
+            <!-- CTA Button -->
+        <div class="hidden md:block">
+            <a 
+                
+                class="inline-block px-6 py-2 border border-gray-900 rounded-full text-gray-900 hover:bg-gray-100 transition-colors font-figtree"
+            >
+                Get in touch
+            </a>
+        </div>
         </div>
         <div
             class="text-xs md:text-base max-w-full mt-[0.1px] font-medium md:mt-auto mx-auto px-4">
