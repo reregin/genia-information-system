@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
-    <title>{{config('app.name', 'System Info Lab')}}</title>
+    <title>{{config('app.name', 'Genia')}}</title>
+    <link rel="icon" type="image/svg" href="{{ asset('images/UKM GENIA LOGO 1.svg') }}">
     @yield('style')
 </head>
 
@@ -40,7 +41,7 @@
         <div class="flex flex-row p-4 md:p-0 mt-4 md:space-x-8">
             <a href="/" class="text-gray-700 hover:text-blue-700">Home</a>
             <a href="/about-us" class="text-gray-700 hover:text-blue-700">About Us</a>
-            <a href="/awarded" class="text-gray-700 hover:text-blue-700">Awarded</a>
+            <a href="{{ route('awarded') }}" class="text-gray-700 hover:text-blue-700">Awarded</a>
             <a href="/blog" class="text-gray-700 hover:text-blue-700">Blog</a>
         </div>
 
