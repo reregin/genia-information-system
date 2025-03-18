@@ -42,7 +42,7 @@
             <a href="/" class="text-gray-700 hover:text-blue-700">Home</a>
             <a href="/about-us" class="text-gray-700 hover:text-blue-700">About Us</a>
             <a href="{{ route('awarded') }}" class="text-gray-700 hover:text-blue-700">Awarded</a>
-            <a href="/blog" class="text-gray-700 hover:text-blue-700">Blog</a>
+            <a href="{{ route('news') }}" class="text-gray-700 hover:text-blue-700">News</a>
         </div>
 
             <!-- <div class="hidden w-full md:block md:w-auto" id="navbar-default">

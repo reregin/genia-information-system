@@ -27,6 +27,7 @@
                     class="w-[600px] h-[600px] object-cover" />
             </div>
         </section>
+
         <section class="bg-white py-6 py-12 px-4">
             <!--lanjut sini kelar sholat-->
             <div class="w-full mx-auto bg-[#F7EFD9] w-full min-h rounded-lg px-8 py-8">
@@ -129,6 +130,7 @@
             </div>
             </div>
         </section>
+
         <section class="bg-white py-6 px-4">
             <!-- Beige Container -->
             <div class="w-full bg-[#F7EFD9] rounded-lg px-8 py-8 mx-auto">
@@ -160,7 +162,6 @@
                         Unduh
                     </a>
                 </div>
-
             </div>
         </section>
     </div>
