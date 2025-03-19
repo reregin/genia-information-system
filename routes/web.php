@@ -14,6 +14,7 @@ Route::get('/', function () {
 Route::get('/selengkapnya', [LandingController::class, 'showSelengkapnya']);
 
 Route::get('/awarded', function () {return view('awarded');})->name('awarded');
+Route::get('/news', function () {return view('news');})->name('news');
 
 Route::get('/login', function () {
     return view('login');
