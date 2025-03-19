@@ -132,7 +132,7 @@
                 >
                 <div class="text-center md:text-right">
                     <p class="text-[20px]font-bold text-gray-900">
-                        Ir. Daniel Febrian Sengkay, S.T., M.Eng
+                        Ir. Daniel Febrian Sengkey, S.T., M.Eng
                     </p>
                     <p class="text-[#646A69]">
                         Pembina UKM Genia Fakultas Teknik
@@ -270,10 +270,10 @@
         </div>
 
         <!-- Swiper Container -->
-        <div class="swiper testimonialSwiper relative overflow-visible pb-8"> <!-- Changed to overflow-visible -->
+        <div class="swiper testimonialSwiper relative overflow-visible pb-8">
             <div class="swiper-wrapper">
                 <!-- Testimonial Slides -->
-                <div class="swiper-slide !w-auto max-w-xs"> <!-- Added !w-auto and max-width -->
+                <div class="swiper-slide !w-auto max-w-xs">
                     <div class="bg-[#E98E1E] rounded-lg p-8 h-full mx-2">
                         <p class="text-black text-lg font-medium">
                             “UKM Penalaran Genia adalah tempat yang membantu saya berpikir lebih kritis dan kreatif!”
@@ -284,7 +284,6 @@
                     </div>
                 </div>
 
-                <!-- Repeat other testimonials with same structure -->
                 <div class="swiper-slide !w-auto max-w-xs">
                     <div class="bg-[#E98E1E] rounded-lg p-8 h-full mx-4">
                         <p class="text-black text-lg font-medium">
@@ -296,7 +295,6 @@
                     </div>
                 </div>
 
-                <!-- Add remaining testimonials -->
                 <div class="swiper-slide !w-auto max-w-xs">
                     <div class="bg-[#E98E1E] rounded-lg p-8 h-full mx-4">
                         <p class="text-black text-lg font-medium">
@@ -460,10 +458,10 @@
         </div>
     </div>
 
-
     <!-- <div class="w-screen">
         <img src="{{ asset("images/f.png") }}" class="w-screen">
     </div> -->
+
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <script>
