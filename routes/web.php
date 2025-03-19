@@ -28,3 +28,6 @@ Route::get('/forgot-password-2', function () {
     return view('forgot_password2');
 });
 
+Route::get('/about-us', function () {
+    return view('about_us');
+});
