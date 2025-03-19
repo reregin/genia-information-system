@@ -64,7 +64,7 @@
         </div>
     </div>
     <div class="flex flex-col justify-center items-center w-full mt-2">
-        <div class="w-full bg-orange-500 p-6 rounded-lg shadow-xl">
+        <div class="w-full bg-[#E08300] p-6 rounded-lg shadow-xl">
             <h2 class="text-black text-center text-2xl font-semibold mb-4">Fokus Kompetisi Kami</h2>
 
             <!-- Center the swiper -->
@@ -73,26 +73,26 @@
                     <div class="swiper-wrapper">
                         <!-- Card Items -->
                         <div class="swiper-slide flex justify-center">
-                            <div class="bg-orange-50 shadow-xl text-black text-center p-4 rounded-lg flex flex-col items-center justify-center w-72 h-28">
-                                <img src="{{ asset("images/logo_onmipa.png") }}" alt="ON-MIPA" class="w-full h-20 object-cover"> 
+                            <div class="bg-[#E7A13D] shadow-xl text-black text-center p-2 rounded-lg flex flex-col items-center justify-center w-72 h-28">
+                                <img src="{{ asset("images/onmipa2.svg") }}" alt="ON-MIPA" class="w-full h-auto object-contain"> 
                             </div>
                         </div>
 
                         <div class="swiper-slide flex justify-center">
-                            <div class="bg-orange-50 shadow-xl text-black text-center p-4 rounded-lg flex flex-col items-center justify-center w-72 h-28">
-                                <img src="{{ asset("images/logo_pkm.png") }}" alt="PKM" class="w-full h-20 object-cover"> 
+                            <div class="bg-[#E7A13D] shadow-xl text-black text-center p-2 rounded-lg flex flex-col items-center justify-center w-72 h-28">
+                                <img src="{{ asset("images/logo_pkm.png") }}" alt="PKM" class="w-full h-20 object-contain"> 
                             </div>
                         </div>
 
                         <div class="swiper-slide flex justify-center">
-                            <div class="bg-orange-50 shadow-xl text-black text-center p-4 rounded-lg flex flex-col items-center justify-center w-72 h-28">
-                                <img src="{{ asset("images/logo_gemastik2.png") }}" alt="GELATIK" class="w-full h-20 object-cover"> 
+                            <div class="bg-[#E7A13D] shadow-xl text-black text-center p-2 rounded-lg flex flex-col items-center justify-center w-72 h-28">
+                                <img src="{{ asset("images/logo_gemastik2.png") }}" alt="GELATIK" class="w-full h-20 object-contain"> 
                             </div>
                         </div>
 
                         <div class="swiper-slide flex justify-center">
-                            <div class="bg-orange-50 shadow-xl text-black text-center p-4 rounded-lg flex flex-col items-center justify-center w-72 h-28">
-                                <img src={{ asset("images/logo_lidm.png") }} alt="COMPETE" class="w-full h-20 object-cover"> 
+                            <div class="bg-[#E7A13D] shadow-xl text-black text-center p-2 rounded-lg flex flex-col items-center justify-center w-72 h-28">
+                                <img src={{ asset("images/logo_lidm.png") }} alt="COMPETE" class="w-full h-20 object-contain"> 
                             </div>
                         </div>
                     </div>
@@ -100,18 +100,36 @@
             </div>
         </div>
     </div>
-    <div class="flex justify-center items-center w-full my-20">
-        <div class="w-1/2 mt-20">
-            <p>
-                Saya memandang dengan penuh harapan pada potensi luar biasa yang dimiliki oleh setiap mahasiswa Fakultas Teknik Universitas Sam Ratulangi
+    <div class="flex justify-center items-center w-full my-20 py-8">
+        <div class="mx-auto grid grid-cols-1 md:grid-cols-2 items-center">
+        <div class="space-y-2 pl-16">
+            <p class="text-2xl text-gray-800 leading-relaxed mb-8 pl-16">
+                Saya memandang dengan penuh harapan pada potensi<br>
+                luar biasa yang dimiliki oleh setiap mahasiswa Fakultas<br>
+                Teknik Universitas Sam Ratulangi
             </p>
-            <p>
-                Mari bersama-sama kita wujudkan visi Fakultas Teknik Universitas Sam Ratulangi untuk menjadi pusat keunggulan di Indonesia Timur.    
+            <p class="text-2xl text-gray-800 leading-relaxed mt-16 pl-16">
+                Mari bersama-sama kita wujudkan visi Fakultas Teknik<br>
+                Universitas Sam Ratulangi untuk menjadi pusat<br> 
+                keunggulan di Indonesia Timur.
             </p>
         </div>
-        <div>
-            <img src="{{ asset("images/image 1.png") }}" class="w-60">
-        </div>   
+
+        <div class="flex flex-col items-center ml-16 pl-5">
+            <img 
+                src="{{ asset('images/image 1.png') }}" 
+                alt="Daniel" 
+                class="w-auto h-auto mb-4"
+            >
+            <div class="text-center md:text-right">
+                <p class="text-[20px]font-bold text-gray-900">
+                    Ir. Daniel Febrian Sengkay, S.T., M.Eng
+                </p>
+                <p class="text-[#646A69]">
+                    Pembina UKM Genia Fakultas Teknik
+                </p>
+            </div>
+        </div>
     </div>
     <!-- <div class="w-screen">
         <img src="{{ asset("images/f.png") }}" class="w-screen">
