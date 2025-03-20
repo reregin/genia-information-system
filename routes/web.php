@@ -18,7 +18,7 @@ Route::get('/news', function () {return view('news');})->name('news');
 
 Route::get('/lomba', function () {
     return view('lomba');
-});
+})->name('lomba');
 Route::get('/details_lomba', function () {
     return view('details_lomba');
 });
@@ -28,7 +28,7 @@ Route::get('/details_blog', function () {
 
 Route::get('/blog', function () {
     return view('blog');
-});
+})->name('blog');
 
 Route::get('/about-us', function () {
     return view('about_us');
