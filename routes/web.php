@@ -19,6 +19,12 @@ Route::get('/news', function () {return view('news');})->name('news');
 Route::get('/lomba', function () {
     return view('lomba');
 });
+Route::get('/details_lomba', function () {
+    return view('details_lomba');
+});
+Route::get('/details_blog', function () {
+    return view('details_blog');
+});
 
 Route::get('/blog', function () {
     return view('blog');
