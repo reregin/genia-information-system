@@ -21,10 +21,10 @@ Route::get('/lomba', function () {
 })->name('lomba');
 Route::get('/details_lomba', function () {
     return view('details_lomba');
-});
+})->name('details_lomba');
 Route::get('/details_blog', function () {
     return view('details_blog');
-});
+})->name('details_blog');
 
 Route::get('/blog', function () {
     return view('blog');

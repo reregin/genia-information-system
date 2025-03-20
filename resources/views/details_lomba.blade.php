@@ -146,6 +146,13 @@ $competition = (object)[
             </div>
         </div>
     </div>
+    
+    <div class="w-screen h-screen">
+    <iframe 
+        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTPQHWbbASeUV39B1V8KZnlDaErnW-SBKZ5mvGujA9gwHdzPLenyRtixwWXneeqZLnXx69_J6MhJCaF/pubhtml?gid=1403662745&amp;single=true&amp;widget=true&amp;headers=false"
+        class="w-full h-full border-0"
+    ></iframe>
+    </div>
 
     <!-- Navigation Tabs -->
     <div class="mb-8 border-b border-gray-200">
@@ -167,7 +174,7 @@ $competition = (object)[
             </li>
             <li>
                 <a href="#contact" class="inline-block p-4 border-transparent border-b-2 hover:border-gray-300 font-medium text-gray-600 hover:text-gray-800">Contact</a>
-            </li>
+         </li>
         </ul>
     </div>
 

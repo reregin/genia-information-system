@@ -103,7 +103,7 @@ $blogs = [
                             <p class="text-gray-500 text-sm">{{ $blogs[0]->author_dept }}</p>
                         </div>
                     </div>
-                    <a href="{{ $blogs[0]->link }}" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition duration-300">Read More</a>
+                    <a href="{{ route('details_blog') }}" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition duration-300">Read More</a>
                 </div>
             </div>
         </div>
@@ -137,7 +137,7 @@ $blogs = [
                               <img src="{{ asset("images/avatar1.png") }}" alt="Author" class="w-8 h-8 rounded-full mr-2">
                               <span class="text-gray-700 text-sm">{{ $blog->author_name }}</span>
                           </div>
-                          <a href="{{ $blog->link }}" class="text-blue-600 hover:text-blue-800 font-medium">Read More →</a>
+                          <a href="{{ route('details_blog') }}" class="text-blue-600 hover:text-blue-800 font-medium">Read More →</a>
                       </div>
                   </div>
               </div>
