@@ -59,10 +59,14 @@ $competitions = [
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 </head>
 <body>
-<div class="w-screen flex justify-center">
-    <h1 id="typewriter" class="text-8xl font-normal leading-tight [text-shadow:_0_2px_2_rgb(0_0_0_/_50%)]"></h1>
+
+<div class="w-screen flex flex-col items-center text-center py-9">
+    <h1 id="typewriter" class="text-7xl font-normal leading-tight [text-shadow:_0_2px_2_rgb(0_0_0_/_50%)]"></h1>
+    <p class="text-lg text-gray-600 mt-2 max-w-2xl">
+        Join us in achieving excellence through innovation, creativity, and dedication.
+    </p>
 </div>
-<div class="px-4 md:px-8 lg:px-16 mx-auto max-w-screen-xl mb-8 mt-6">
+<div class="px-4 md:px-8 lg:px-16 mx-auto max-w-screen-xl mb-12">
     <div class="flex items-center mb-6 mt-6">
             <div class="flex-grow border-t border-gray-500"></div>
             <span class="px-4 text-lg text-gray-500 font-semibold">2025</span>
@@ -91,8 +95,8 @@ $competitions = [
 </div>
 </div>
 
-<div class="px-4 md:px-8 lg:px-16 mx-auto max-w-screen-xl mb-8 mt-6">
-    <div class="flex items-center mb-6 mt-6">
+<div class="px-4 md:px-8 lg:px-16 mx-auto max-w-screen-xl mb-12">
+    <div class="flex items-center mb-8 mt-6">
             <div class="flex-grow border-t border-gray-500"></div>
             <span class="px-4 text-lg text-gray-500 font-semibold">2024</span>
             <div class="flex-grow border-t border-gray-500"></div>
@@ -123,8 +127,8 @@ $competitions = [
 
 <script>
     var typed = new Typed("#typewriter", {
-        strings: ["Let's be the #1"],
-        typeSpeed: 150,   // Speed of typing
+        strings: ["Empowering the Future"],
+        typeSpeed: 50,   // Speed of typing
         backSpeed: 50,    // Speed of backspacing
         startDelay: 0,  // Delay before typing starts
         showCursor: false,
