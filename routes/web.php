@@ -20,6 +20,10 @@ Route::get('/lomba', function () {
     return view('lomba');
 });
 
+Route::get('/blog', function () {
+    return view('blog');
+});
+
 Route::get('/about-us', function () {
     return view('about_us');
 });
