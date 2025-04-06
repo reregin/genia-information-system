@@ -14,18 +14,15 @@
 
     <nav style="z-index: 2;" class="relative px-4">
         <div class="max-w-full flex flex-wrap items-center justify-between mx-auto p-2">
-        <!--logo-->
-        <div class="items-center">
-            <a class="flex flex-row items-center">
-                <div class=" w-[240px] h-[80px]">
-                    <img 
-                        src="{{ asset('images/Group 3.png') }}" 
-                        alt="UKM Genia Logo"
-                        class="object-contain w-[560px] h-[80px]"
-                    />
-                </div>
-            </a>
-        </div>
+            <!--logo-->
+            <div class="items-center">
+                <a class="flex flex-row items-center">
+                    <div class=" w-[240px] h-[80px]">
+                        <img src="{{ asset('images/Group 3.png') }}" alt="UKM Genia Logo"
+                            class="object-contain w-[560px] h-[80px]" />
+                    </div>
+                </a>
+            </div>
 
             <button data-collapse-toggle="navbar-default" type="button"
                 class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:focus:ring-gray-600"
@@ -37,15 +34,15 @@
                         d="M1 1h15M1 7h15M1 13h15" />
                 </svg>
             </button>
-         <!-- Navigation Links (Center Section) --> 
-        <div class="flex flex-row p-4 md:p-0 mt-4 md:space-x-8">
-            <a href="/" class="text-gray-700 hover:text-blue-700">Home</a>
-            <a href="/about-us" class="text-gray-700 hover:text-blue-700">About Us</a>
-            <a href="{{ route('awarded') }}" class="text-gray-700 hover:text-blue-700">Awarded</a>
-            <a href="{{ route('lomba') }}" class="text-gray-700 hover:text-blue-700">Competition</a>
-            <a href="{{ route('blog') }}" class="text-gray-700 hover:text-blue-700">Blog</a>
-            <a href="{{ route('news') }}" class="text-gray-700 hover:text-blue-700">News</a>
-        </div>
+            <!-- Navigation Links (Center Section) -->
+            <div class="flex flex-row p-4 md:p-0 mt-4 md:space-x-8">
+                <a href="/" class="text-gray-700 hover:text-blue-700">Home</a>
+                <a href="/about-us" class="text-gray-700 hover:text-blue-700">About Us</a>
+                <a href="{{ route('awarded') }}" class="text-gray-700 hover:text-blue-700">Awarded</a>
+                <a href="{{ route('lomba') }}" class="text-gray-700 hover:text-blue-700">Competition</a>
+                <a href="{{ route('blog') }}" class="text-gray-700 hover:text-blue-700">Blog</a>
+                <a href="{{ route('news') }}" class="text-gray-700 hover:text-blue-700">News</a>
+            </div>
 
             <!-- <div class="hidden w-full md:block md:w-auto" id="navbar-default">
                 <ul class="flex flex-col p-4 md:p-0 md:flex-row md:space-x-8">
@@ -67,17 +64,14 @@
             </div> -->
 
             <!-- CTA Button -->
-        <div class="hidden md:block">
-            <a 
-                
-                class="inline-block px-6 py-2 border border-gray-900 rounded-full text-gray-900 hover:bg-gray-100 transition-colors font-figtree"
-            >
-                Get in touch
-            </a>
+            <div class="hidden md:block">
+                <a
+                    class="inline-block px-6 py-2 border border-gray-900 rounded-full text-gray-900 hover:bg-gray-100 transition-colors font-figtree">
+                    Get in touch
+                </a>
+            </div>
         </div>
-        </div>
-        <div
-            class="text-xs md:text-base max-w-full mt-[0.1px] font-medium md:mt-auto mx-auto px-4">
+        <div class="text-xs md:text-base max-w-full mt-[0.1px] font-medium md:mt-auto mx-auto px-4">
             @if(count($path) != 1)
                 @for ($i = 0; $i < count($path); $i++)
                     <span>{{ $path[$i] }}</span>
@@ -106,7 +100,7 @@
                 <div>
                     <p>Universitas Sam Ratulangi, Manado</p>
                     <p class="mt-6">
-                        Kelurahan Bahu, Kecamatan Malalayang <br> 
+                        Kelurahan Bahu, Kecamatan Malalayang <br>
                         Kota Manado, Sulawesi Utara 95115
                     </p>
                     <p class="mt-6">
@@ -116,7 +110,7 @@
 
                 <!-- Grid 2.2: Social Media Section -->
                 <div class="flex flex-col space-y-3">
-                   <div> 
+                    <div>
                         <a href="#" class="flex items-center space-x-3 bg-gray-700 rounded-full px-4 py-2">
                             <img src="{{ asset('images/fbg.png') }}" alt="Facebook" class="h-6 w-6">
                             <span>Follow us on Facebook</span>
@@ -139,18 +133,18 @@
             </div>
         </div>
 
-         <!-- Second Row -->
-    <div class="flex-grow grid grid-cols-2 gap-8">
-        <!-- Grid 3: Picture -->
-        <div class="h-full">
-            <img src="{{ asset('images/Lines.png') }}" alt="Footer Image" class="h-full w-full object-cover">
-        </div>
+        <!-- Second Row -->
+        <div class="flex-grow grid grid-cols-2 gap-8">
+            <!-- Grid 3: Picture -->
+            <div class="h-full">
+                <img src="{{ asset('images/Lines.png') }}" alt="Footer Image" class="h-full w-full object-cover">
+            </div>
 
-        <!-- Grid 4: Copyright -->
-        <div class="flex justify-end items-end pb-4 mr-10">
-            <p>&copy; 2025 UKM Genia.</p>
+            <!-- Grid 4: Copyright -->
+            <div class="flex justify-end items-end pb-4 mr-10">
+                <p>&copy; 2025 UKM Genia.</p>
+            </div>
         </div>
-    </div>
 
     </footer>
 

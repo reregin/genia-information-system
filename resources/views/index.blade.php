@@ -155,7 +155,7 @@
             <div class="grid grid-cols-1 md:grid-cols-8 lg:grid-cols-12 gap-6 md:gap-16">
                 <!-- Text -->
                 <div class="max-w-full md:col-span-6 lg:col-span-8 md:max-w-[85%] lg:max-w-[75%]">
-                    <hclass="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-gray-900 mb-4 sm:mb-6">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-gray-900 mb-4 sm:mb-6">
                         Committed to achieve higher
                     </h2>
                     <p class="text-gray-700 text-base sm:text-lg">
@@ -168,7 +168,7 @@
                 <!-- Statistics -->
                 <div class="md:col-span-2 lg:col-span-4 grid grid-cols-2 sm:grid-cols-4 md:grid-cols-1 gap-6 text-center md:text-left">
                     <div>
-                      h3 class="text-3xl sm:text-4xl text-gray-900">810</h3>
+                      <h3 class="text-3xl sm:text-4xl text-gray-900">810</h3>
                         <p class="text-gray-600 text-sm sm:text-base">Kandidat <br> Mahasiswa Fakultas Teknik</p>
                     </div>
                     <div>
