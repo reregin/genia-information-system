@@ -158,11 +158,12 @@ $blogs = [
         <!-- Newsletter Signup -->
         <div class="mt-16 bg-gray-100 rounded-lg p-8">
             <div class="text-center">
-                <h3 class="text-2xl font-bold text-gray-800 mb-2">Stay Updated</h3>
-                <p class="text-gray-600 mb-6">Subscribe to our newsletter to receive the latest blog posts and updates</p>
-                <div class="flex flex-col sm:flex-row gap-2 max-w-md mx-auto">
-                    <input type="email" placeholder="Enter your email" class="flex-grow px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    <button class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition duration-300">Subscribe</button>
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">Bagikan Cerita Anda!</h3>
+                <p class="text-gray-600 mb-6">Ayo bagikan pada kami dan akan kami tampilkan pada website Genia!</p>
+                <div class="flex flex-col justify-center sm:flex-row gap-2 max-w-md mx-auto">
+                    <a href="{{ route('send_blog') }}">
+                        <button class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition duration-300">Kirim Cerita</button>
+                    </a>
                 </div>
             </div>
         </div>

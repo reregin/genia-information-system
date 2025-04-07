@@ -29,6 +29,9 @@ Route::get('/details_blog', function () {
 Route::get('/blog', function () {
     return view('blog');
 })->name('blog');
+Route::get('/send_blog', function () {
+    return view('send_blog');
+})->name('send_blog');
 
 Route::get('/about-us', function () {
     return view('about_us');
