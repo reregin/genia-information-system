@@ -78,9 +78,9 @@ $blogs = [
 @section('content')
     <div class="container mx-auto px-4 py-8">
         <!-- Page Title -->
-        <div class="mb-8 w-screen flex items-center flex-col">
-            <h1 class="text-3xl font-bold text-gray-800">Explore Our Blog</h1>
-            <p class="text-gray-600 mt-2">Discover the latest insights, tips, and news from our team</p>
+        <div class="mb-8 w-full flex items-center flex-col px-4 text-center">
+            <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800">Explore Our Blog</h1>
+            <p class="text-sm sm:text-base text-gray-600 mt-2 max-w-md sm:max-w-lg">Discover the latest insights, tips, and news from our team</p>
         </div>
 
         <!-- Featured/Highlighted Blog Post -->
