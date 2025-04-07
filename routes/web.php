@@ -60,6 +60,7 @@ Route::prefix('admin')->group(function () {
   
     // Dashboard
     Route::get('/', function () {
-        return view('admin.index');
+        return view('modules.admin.index');
     })->name('admin.dashboard');
 
+});
