@@ -39,7 +39,7 @@
                 <a href="/" class="text-gray-700 hover:text-blue-700">Home</a>
                 <a href="/about-us" class="text-gray-700 hover:text-blue-700">About Us</a>
                 <a href="{{ route('awarded') }}" class="text-gray-700 hover:text-blue-700">Awarded</a>
-                <a href="{{ route('lomba') }}" class="text-gray-700 hover:text-blue-700">Competition</a>
+                <a href="{{ route('competition') }}" class="text-gray-700 hover:text-blue-700">Competition</a>
                 <a href="{{ route('blog') }}" class="text-gray-700 hover:text-blue-700">Blog</a>
                 <a href="{{ route('news') }}" class="text-gray-700 hover:text-blue-700">News</a>
             </div>
