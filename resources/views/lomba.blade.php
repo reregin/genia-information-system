@@ -63,7 +63,7 @@ $competitions = [
 <div class="w-screen flex flex-col items-center text-center py-9 px-4">
     <h1 id="typewriter" class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal leading-tight [text-shadow:_0_2px_2_rgb(0_0_0_/_50%)]"></h1>
     <p class="text-lg text-gray-600 mt-2 max-w-md sm:max-w-xl md:max-w-2xl">
-        Join us in achieving excellence through innovation, creativity, and dedication.
+        Ayo ikuti lomba-lomba ini, berkreasi, berinovasi dan jadilah juara!
     </p>
 </div>
 <div class="px-4 md:px-8 lg:px-16 mx-auto max-w-screen-xl mb-12">
