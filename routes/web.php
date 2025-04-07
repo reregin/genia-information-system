@@ -62,5 +62,10 @@ Route::prefix('admin')->group(function () {
     Route::get('/', function () {
         return view('modules.admin.index');
     })->name('admin.dashboard');
+    
+    // Competition
+    Route::get('/competition', function () {
+        return view('modules.admin.competition');
+    })->name('admin.competition');
 
 });
