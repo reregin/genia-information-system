@@ -87,7 +87,7 @@ $competitions = [
                 </div>
                 <div class="mt-4 flex space-x-2 justify-start">
                     <a href="{{ $competition->website }}" class="border border-[#E08300] text-[#E08300] px-4 py-1 rounded-lg text-sm hover:bg-[#E08300] hover:text-white transition">Laman</a>
-                    <a href="{{ route('details_lomba') }}" class="border border-[#E08300] text-[#E08300] px-4 py-1 rounded-lg text-sm hover:bg-[#E08300] hover:text-white transition">Detail</a>
+                    <a href="{{ route('details_competition') }}" class="border border-[#E08300] text-[#E08300] px-4 py-1 rounded-lg text-sm hover:bg-[#E08300] hover:text-white transition">Detail</a>
                 </div>
             </div>
         </div>
@@ -116,7 +116,7 @@ $competitions = [
                 </div>
                 <div class="mt-4 flex space-x-2 justify-start">
                     <a href="{{ $competition->website }}" class="border border-[#E08300] text-[#E08300] px-4 py-1 rounded-lg text-sm hover:bg-[#E08300] hover:text-white transition">Laman</a>
-                    <a href="{{ route('details_lomba') }}" class="border border-[#E08300] text-[#E08300] px-4 py-1 rounded-lg text-sm hover:bg-[#E08300] hover:text-white transition">Detail</a>
+                    <a href="{{ route('details_competition') }}" class="border border-[#E08300] text-[#E08300] px-4 py-1 rounded-lg text-sm hover:bg-[#E08300] hover:text-white transition">Detail</a>
                 </div>
             </div>
         </div>

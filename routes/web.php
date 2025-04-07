@@ -1,40 +1,65 @@
 <?php
 
-use App\Http\Controllers\LandingController;
 use Illuminate\Support\Facades\Route;
 
-// User-facing routes
-Route::get('/', function () { return view('index'); });
-Route::get('/home', function () { return view('home'); });
-Route::get('/selengkapnya', [LandingController::class, 'showSelengkapnya']);
 
-Route::get('/awarded', function () {return view('awarded');})->name('awarded');
-Route::get('/news', function () {return view('news');})->name('news');
-
-Route::get('/lomba', function () {
-    return view('lomba');
-})->name('lomba');
-Route::get('/details_lomba', function () {
-    return view('details_lomba');
-})->name('details_lomba');
-Route::get('/details_blog', function () {
-    return view('details_blog');
-})->name('details_blog');
-
-Route::get('/blog', function () {
-    return view('blog');
-})->name('blog');
-Route::get('/send_blog', function () {
-    return view('send_blog');
-})->name('send_blog');
-
-Route::get('/about-us', function () {
-    return view('about_us');
+// ====================
+// LANDING
+// ====================
+Route::get('/', function () {
+    return view('modules.landing.index');
 });
 
-// Admin routes group
+Route::get('/about-us', function () {
+    return view('modules.landing.about_us');
+});
+
+
+Route::get('/awarded', function () {
+    return view('modules.landing.awarded');
+})->name('awarded');
+
+// ====================
+// NEWS
+// ====================
+Route::get('/news', function () {
+    return view('modules.news.news');
+})->name('news');
+
+// ====================
+// COMPETITION
+// ====================
+Route::get('/competition', function () {
+    return view('modules.competition.competition');
+})->name('competition');
+
+Route::get('/details_competition', function () {
+    return view('modules.competition.details_competition');
+})->name('details_competition');
+
+// ====================
+// BLOG
+// ====================
+Route::get('/blog', function () {
+    return view('modules.blog.blog');
+})->name('blog');
+
+Route::get('/details_blog', function () {
+    return view('modules.blog.details_blog');
+})->name('details_blog');
+
+Route::get('/send_blog', function () {
+    return view('modules.blog.send_blog');
+})->name('send_blog');
+
+
+// ====================
+// ADMIN
+// ====================
 Route::prefix('admin')->group(function () {
+  
     // Dashboard
     Route::get('/', function () {
         return view('admin.index');
     })->name('admin.dashboard');
+
