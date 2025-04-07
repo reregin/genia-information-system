@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 // ====================
 // LANDING
 // ====================
@@ -12,6 +13,7 @@ Route::get('/', function () {
 Route::get('/about-us', function () {
     return view('modules.landing.about_us');
 });
+
 
 Route::get('/awarded', function () {
     return view('modules.landing.awarded');
@@ -49,3 +51,15 @@ Route::get('/details_blog', function () {
 Route::get('/send_blog', function () {
     return view('modules.blog.send_blog');
 })->name('send_blog');
+
+
+// ====================
+// ADMIN
+// ====================
+Route::prefix('admin')->group(function () {
+  
+    // Dashboard
+    Route::get('/', function () {
+        return view('admin.index');
+    })->name('admin.dashboard');
+
