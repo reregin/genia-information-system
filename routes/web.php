@@ -26,6 +26,10 @@ Route::get('/news', function () {
     return view('modules.news.news');
 })->name('news');
 
+Route::get('/details_news', function () {
+    return view('modules.news.details_news');
+})->name('details_news');
+
 // ====================
 // COMPETITION
 // ====================

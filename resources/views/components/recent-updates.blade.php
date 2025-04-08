@@ -23,7 +23,7 @@
         <!-- Content for 2024 (Initially Hidden) -->
         <div class="year-content hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" data-year="2024">
             <!-- Event Box 1 -->
-            <div class="bg-white rounded-[20px] shadow-lg p-6 hover:shadow-xl transition-shadow cursor-pointer">
+            <a href="{{ route('details_news') }}" class="bg-white rounded-[20px] shadow-lg p-6 hover:shadow-xl transition-shadow cursor-pointer">
                 <div class="flex flex-col h-full">
                     <div class="flex-grow">
                         <h3 class="text-xl font-medium mb-2">Pengumuman Seleksi Internal GELATIK UNSRAT 2024</h3>
@@ -35,10 +35,10 @@
                         </svg>
                     </div>
                 </div>
-            </div>
+            </a>
 
             <!-- Event Box 2 -->
-            <div class="bg-white rounded-[20px] shadow-lg p-6 hover:shadow-xl transition-shadow cursor-pointer">
+            <a href="{{ route('details_news') }}" class="bg-white rounded-[20px] shadow-lg p-6 hover:shadow-xl transition-shadow cursor-pointer">
                 <div class="flex flex-col h-full">
                     <div class="flex-grow">
                         <h3 class="text-xl font-medium mb-2">Ristek UI Preliminary Rounds</h3>
@@ -50,10 +50,10 @@
                         </svg>
                     </div>
                 </div>
-            </div>
+            </a>
 
             <!-- Event Box 3 -->
-            <div class="bg-white rounded-[20px] shadow-lg p-6 hover:shadow-xl transition-shadow cursor-pointer">
+            <a href="{{ route('details_news') }}" class="bg-white rounded-[20px] shadow-lg p-6 hover:shadow-xl transition-shadow cursor-pointer">
                 <div class="flex flex-col h-full">
                     <div class="flex-grow">
                         <h3 class="text-xl font-medium mb-2">Genia Datathon Open-Register</h3>
@@ -65,10 +65,10 @@
                         </svg>
                     </div>
                 </div>
-            </div>
+            </a>
 
             <!-- Event Box 4 -->
-            <div class="bg-white rounded-[20px] shadow-lg p-6 hover:shadow-xl transition-shadow cursor-pointer">
+            <a href="{{ route('details_news') }}" class="bg-white rounded-[20px] shadow-lg p-6 hover:shadow-xl transition-shadow cursor-pointer">
                 <div class="flex flex-col h-full">
                     <div class="flex-grow">
                         <h3 class="text-xl font-medium mb-2">UNITY x Genia Hackathon</h3>
@@ -80,10 +80,10 @@
                         </svg>
                     </div>
                 </div>
-            </div>
+            </a>
 
             <!-- Event Box 5 -->
-            <div class="bg-white rounded-[20px] shadow-lg p-6 hover:shadow-xl transition-shadow cursor-pointer">
+            <a href="{{ route('details_news') }}" class="bg-white rounded-[20px] shadow-lg p-6 hover:shadow-xl transition-shadow cursor-pointer">
                 <div class="flex flex-col h-full">
                     <div class="flex-grow">
                         <h3 class="text-xl font-medium mb-2">GELATIK Finalist Announcement</h3>
@@ -95,10 +95,10 @@
                         </svg>
                     </div>
                 </div>
-            </div>
+            </a>
 
             <!-- Event Box 6 -->
-            <div class="bg-white rounded-[20px] shadow-lg p-6 hover:shadow-xl transition-shadow cursor-pointer">
+            <a href="{{ route('details_news') }}" class="bg-white rounded-[20px] shadow-lg p-6 hover:shadow-xl transition-shadow cursor-pointer">
                 <div class="flex flex-col h-full">
                     <div class="flex-grow">
                         <h3 class="text-xl font-medium mb-2">Genia Quarantine for Gelatik Finalist</h3>
@@ -110,13 +110,13 @@
                         </svg>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
 
         <!-- Content for 2025 (Initially Shown) -->
         <div class="year-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" data-year="2025">
             <!-- Event Box 1 -->
-            <div class="bg-white rounded-[20px] shadow-lg p-6 hover:shadow-xl transition-shadow cursor-pointer">
+            <a href="{{ route('details_news') }}" class="bg-white rounded-[20px] shadow-lg p-6 hover:shadow-xl transition-shadow cursor-pointer">
                 <div class="flex flex-col h-full">
                     <div class="flex-grow">
                         <h3 class="text-xl font-medium mb-2">Pengumuman Seleksi Internal GELATIK UNSRAT 2025</h3>
@@ -128,10 +128,10 @@
                         </svg>
                     </div>
                 </div>
-            </div>
+            </a>
 
             <!-- Event Box 2 -->
-            <div class="bg-white rounded-[20px] shadow-lg p-6 hover:shadow-xl transition-shadow cursor-pointer">
+            <a href="{{ route('details_news') }}" class="bg-white rounded-[20px] shadow-lg p-6 hover:shadow-xl transition-shadow cursor-pointer">
                 <div class="flex flex-col h-full">
                     <div class="flex-grow">
                         <h3 class="text-xl font-medium mb-2">Ristek UI Preliminary Rounds</h3>
@@ -143,10 +143,10 @@
                         </svg>
                     </div>
                 </div>
-            </div>
+            </a>
 
             <!-- Event Box 3 -->
-            <div class="bg-white rounded-[20px] shadow-lg p-6 hover:shadow-xl transition-shadow cursor-pointer">
+            <a href="{{ route('details_news') }}" class="bg-white rounded-[20px] shadow-lg p-6 hover:shadow-xl transition-shadow cursor-pointer">
                 <div class="flex flex-col h-full">
                     <div class="flex-grow">
                         <h3 class="text-xl font-medium mb-2">Genia Datathon Open-Register</h3>
@@ -158,10 +158,10 @@
                         </svg>
                     </div>
                 </div>
-            </div>
+            </a>
 
             <!-- Event Box 4 -->
-            <div class="bg-white rounded-[20px] shadow-lg p-6 hover:shadow-xl transition-shadow cursor-pointer">
+            <a href="{{ route('details_news') }}" class="bg-white rounded-[20px] shadow-lg p-6 hover:shadow-xl transition-shadow cursor-pointer">
                 <div class="flex flex-col h-full">
                     <div class="flex-grow">
                         <h3 class="text-xl font-medium mb-2">UNITY x Genia Hackathon</h3>
@@ -173,10 +173,10 @@
                         </svg>
                     </div>
                 </div>
-            </div>
+            </a>
 
             <!-- Event Box 5 -->
-            <div class="bg-white rounded-[20px] shadow-lg p-6 hover:shadow-xl transition-shadow cursor-pointer">
+            <a href="{{ route('details_news') }}" class="bg-white rounded-[20px] shadow-lg p-6 hover:shadow-xl transition-shadow cursor-pointer">
                 <div class="flex flex-col h-full">
                     <div class="flex-grow">
                         <h3 class="text-xl font-medium mb-2">GELATIK Finalist Announcement</h3>
@@ -188,10 +188,10 @@
                         </svg>
                     </div>
                 </div>
-            </div>
+            </a>
 
             <!-- Event Box 6 -->
-            <div class="bg-white rounded-[20px] shadow-lg p-6 hover:shadow-xl transition-shadow cursor-pointer">
+            <a href="{{ route('details_news') }}" class="bg-white rounded-[20px] shadow-lg p-6 hover:shadow-xl transition-shadow cursor-pointer">
                 <div class="flex flex-col h-full">
                     <div class="flex-grow">
                         <h3 class="text-xl font-medium mb-2">Genia Quarantine for Gelatik Finalist</h3>
@@ -203,13 +203,13 @@
                         </svg>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
 
         <!-- Content for 2026 (Initially Hidden) -->
         <div class="year-content hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" data-year="2026">
             <!-- Event Box 1 -->
-            <div class="bg-white rounded-[20px] shadow-lg p-6 hover:shadow-xl transition-shadow cursor-pointer">
+            <a href="{{ route('details_news') }}" class="bg-white rounded-[20px] shadow-lg p-6 hover:shadow-xl transition-shadow cursor-pointer">
                 <div class="flex flex-col h-full">
                     <div class="flex-grow">
                         <h3 class="text-xl font-medium mb-2">Pengumuman Seleksi Internal GELATIK UNSRAT 2026</h3>
@@ -221,10 +221,10 @@
                         </svg>
                     </div>
                 </div>
-            </div>
+            </a>
 
             <!-- Event Box 2 -->
-            <div class="bg-white rounded-[20px] shadow-lg p-6 hover:shadow-xl transition-shadow cursor-pointer">
+            <a href="{{ route('details_news') }}" class="bg-white rounded-[20px] shadow-lg p-6 hover:shadow-xl transition-shadow cursor-pointer">
                 <div class="flex flex-col h-full">
                     <div class="flex-grow">
                         <h3 class="text-xl font-medium mb-2">Ristek UI Preliminary Rounds</h3>
@@ -236,10 +236,10 @@
                         </svg>
                     </div>
                 </div>
-            </div>
+            </a>
 
             <!-- Event Box 3 -->
-            <div class="bg-white rounded-[20px] shadow-lg p-6 hover:shadow-xl transition-shadow cursor-pointer">
+            <a href="{{ route('details_news') }}" class="bg-white rounded-[20px] shadow-lg p-6 hover:shadow-xl transition-shadow cursor-pointer">
                 <div class="flex flex-col h-full">
                     <div class="flex-grow">
                         <h3 class="text-xl font-medium mb-2">Genia Datathon Open-Register</h3>
@@ -251,10 +251,10 @@
                         </svg>
                     </div>
                 </div>
-            </div>
+            </a>
 
             <!-- Event Box 4 -->
-            <div class="bg-white rounded-[20px] shadow-lg p-6 hover:shadow-xl transition-shadow cursor-pointer">
+            <a href="{{ route('details_news') }}" class="bg-white rounded-[20px] shadow-lg p-6 hover:shadow-xl transition-shadow cursor-pointer">
                 <div class="flex flex-col h-full">
                     <div class="flex-grow">
                         <h3 class="text-xl font-medium mb-2">UNITY x Genia Hackathon</h3>
@@ -266,10 +266,10 @@
                         </svg>
                     </div>
                 </div>
-            </div>
+            </a>
 
             <!-- Event Box 5 -->
-            <div class="bg-white rounded-[20px] shadow-lg p-6 hover:shadow-xl transition-shadow cursor-pointer">
+            <a href="{{ route('details_news') }}" class="bg-white rounded-[20px] shadow-lg p-6 hover:shadow-xl transition-shadow cursor-pointer">
                 <div class="flex flex-col h-full">
                     <div class="flex-grow">
                         <h3 class="text-xl font-medium mb-2">GELATIK Finalist Announcement</h3>
@@ -281,10 +281,10 @@
                         </svg>
                     </div>
                 </div>
-            </div>
+            </a>
 
             <!-- Event Box 6 -->
-            <div class="bg-white rounded-[20px] shadow-lg p-6 hover:shadow-xl transition-shadow cursor-pointer">
+            <a href="{{ route('details_news') }}" class="bg-white rounded-[20px] shadow-lg p-6 hover:shadow-xl transition-shadow cursor-pointer">
                 <div class="flex flex-col h-full">
                     <div class="flex-grow">
                         <h3 class="text-xl font-medium mb-2">Genia Quarantine for Gelatik Finalist</h3>
@@ -296,7 +296,7 @@
                         </svg>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
     </div>
 </section>
