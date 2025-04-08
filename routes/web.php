@@ -67,5 +67,13 @@ Route::prefix('admin')->group(function () {
     Route::get('/competition', function () {
         return view('modules.admin.competition');
     })->name('admin.competition');
+    
+    Route::get('/competition/add', function () {
+        return view('modules.admin.competition_add');
+    })->name('admin.competition_add');
+    
+    Route::get('/competition/edit', function () {
+        return view('modules.admin.competition_edit');
+    })->name('admin.competition_edit');
 
 });
