@@ -75,11 +75,11 @@ Route::prefix('admin')->group(function () {
     
     Route::get('/competition/add', function () {
         return view('modules.admin.competition.add');
-    })->name('admin.competition_add');
+    })->name('admin.competition.add');
     
     Route::get('/competition/edit', function () {
         return view('modules.admin.competition.edit');
-    })->name('admin.competition_edit');
+    })->name('admin.competition.edit');
 
     // Blog
     Route::get('/blog', function () {
@@ -88,10 +88,10 @@ Route::prefix('admin')->group(function () {
     
     Route::get('/blog/add', function () {
         return view('modules.admin.blog.add');
-    })->name('admin.blog_add');
+    })->name('admin.blog.add');
     
     Route::get('/blog/edit', function () {
         return view('modules.admin.blog.edit');
-    })->name('admin.blog_edit');
+    })->name('admin.blog.edit');
 
 });

@@ -40,7 +40,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="flex items-center p-3 text-gray-700 hover:bg-blue-50 rounded-lg hover:text-blue-600 transition">
+                            <a href="{{ route('admin.blog') }}" class="flex items-center p-3 text-gray-700 hover:bg-blue-50 rounded-lg hover:text-blue-600 transition">
                                 <span class="ml-3">Blog</span>
                             </a>
                         </li>
