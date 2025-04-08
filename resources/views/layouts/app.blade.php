@@ -25,7 +25,7 @@
             </div>
 
             <button data-collapse-toggle="navbar-default" type="button"
-                class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:focus:ring-gray-600"
+                class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
                 aria-controls="navbar-default" aria-expanded="false">
                 <span class="sr-only">Open main menu</span>
                 <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -35,33 +35,16 @@
                 </svg>
             </button>
             <!-- Navigation Links (Center Section) -->
-            <div class="flex flex-row p-4 md:p-0 mt-4 md:space-x-8">
-                <a href="/" class="text-gray-700 hover:text-blue-700">Home</a>
-                <a href="/about-us" class="text-gray-700 hover:text-blue-700">About Us</a>
-                <a href="{{ route('awarded') }}" class="text-gray-700 hover:text-blue-700">Awarded</a>
-                <a href="{{ route('competition') }}" class="text-gray-700 hover:text-blue-700">Competition</a>
-                <a href="{{ route('blog') }}" class="text-gray-700 hover:text-blue-700">Blog</a>
-                <a href="{{ route('news') }}" class="text-gray-700 hover:text-blue-700">News</a>
+            <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+                <div class="flex flex-col p-4 md:p-0 mt-4 md:flex-row md:space-x-8 md:mt-0">
+                    <a href="/" class="block py-2 px-3 text-gray-700 hover:text-blue-700">Home</a>
+                    <a href="/about-us" class="block py-2 px-3 text-gray-700 hover:text-blue-700">About Us</a>
+                    <a href="{{ route('awarded') }}" class="block py-2 px-3 text-gray-700 hover:text-blue-700">Awarded</a>
+                    <a href="{{ route('competition') }}" class="block py-2 px-3 text-gray-700 hover:text-blue-700">Competition</a>
+                    <a href="{{ route('blog') }}" class="block py-2 px-3 text-gray-700 hover:text-blue-700">Blog</a>
+                    <a href="{{ route('news') }}" class="block py-2 px-3 text-gray-700 hover:text-blue-700">News</a>
+                </div>
             </div>
-
-            <!-- <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-                <ul class="flex flex-col p-4 md:p-0 md:flex-row md:space-x-8">
-                    <li>
-                        <a href="/login"
-                            class="block py-2 px-3 text-blue-700 rounded hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-2 flex items-center justify-center"
-                            style="padding: 12px 0px;">
-                            Sign In
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/register"
-                            class="block py-2 px-3 text-white font-sfpro text-base rounded-3xl bg-[#001CB1] md:border-0 md:p-2 dark:text-white"
-                            style="padding: 12px 24px; text-align: center;">
-                            Sign Up
-                        </a>
-                    </li>
-                </ul>
-            </div> -->
 
             <!-- CTA Button -->
             <div class="hidden md:block">
@@ -87,17 +70,17 @@
         @yield('content')
     </main>
 
-    <footer class="w-screen h-[550px] bg-[#001D3D] flex flex-col text-white">
-        <div class="max-w-7xl mx-auto grid grid-cols-2 gap-12 items-start mt-10">
+    <footer class="w-screen min-h-[550px] bg-[#001D3D] flex flex-col text-white">
+        <div class="max-w-7xl mx-auto px-4 py-8 md:py-10 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
             <!-- Grid 1: Logo Section -->
-            <div>
+            <div class="flex justify-center md:justify-start">
                 <img src="{{ asset('images/genia-white.png') }}" alt="UKM Genia Logo" class="h-16 w-auto">
             </div>
 
             <!-- Grid 2: Right Section (Address + Social Media) -->
-            <div class="grid grid-cols-2 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Grid 2.1: Address Section -->
-                <div>
+                <div class="text-center md:text-left">
                     <p>Universitas Sam Ratulangi, Manado</p>
                     <p class="mt-6">
                         Kelurahan Bahu, Kecamatan Malalayang <br>
@@ -109,43 +92,41 @@
                 </div>
 
                 <!-- Grid 2.2: Social Media Section -->
-                <div class="flex flex-col space-y-3">
+                <div class="flex flex-col space-y-3 items-center md:items-start">
                     <div>
                         <a href="#" class="flex items-center space-x-3 bg-gray-700 rounded-full px-4 py-2">
                             <img src="{{ asset('images/fbg.png') }}" alt="Facebook" class="h-6 w-6">
                             <span>Follow us on Facebook</span>
                         </a>
                     </div>
-                    <div class="mt-10">
+                    <div>
                         <a href="#" class="flex items-center space-x-3 bg-gray-700 rounded-full px-4 py-2">
                             <img src="{{ asset('images/igg.png') }}" alt="Instagram" class="h-6 w-6">
                             <span>Follow us on Instagram</span>
                         </a>
                     </div>
-                    <div class="mt-10">
+                    <div>
                         <a href="#" class="flex items-center space-x-3 bg-gray-700 rounded-full px-4 py-2">
                             <img src="{{ asset('images/lig.png') }}" alt="LinkedIn" class="h-6 w-6">
                             <span>Follow us on LinkedIn</span>
                         </a>
                     </div>
                 </div>
-
             </div>
         </div>
 
         <!-- Second Row -->
-        <div class="flex-grow grid grid-cols-2 gap-8">
+        <div class="flex-grow grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 md:mt-0">
             <!-- Grid 3: Picture -->
-            <div class="h-full">
+            <div class="h-full order-2 md:order-1">
                 <img src="{{ asset('images/Lines.png') }}" alt="Footer Image" class="h-full w-full object-cover">
             </div>
 
             <!-- Grid 4: Copyright -->
-            <div class="flex justify-end items-end pb-4 mr-10">
+            <div class="flex justify-center md:justify-end items-end pb-4 md:mr-10 order-1 md:order-2">
                 <p>&copy; 2025 UKM Genia.</p>
             </div>
         </div>
-
     </footer>
 
 </body>
