@@ -120,7 +120,7 @@ $blogs = [
                             Blog Post
                         </th>
                         <!-- Hidden on smaller screens -->
-                        <th scope="col" class="hidden lg:table-cell px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        <th scope="col" class="hidden xl:table-cell px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Author
                         </th>
                         <!-- Hidden on sm screens -->
@@ -169,12 +169,12 @@ $blogs = [
                             </div>
                         </td>
                         <!-- Author visible only on md screens and up -->
-                        <td class="hidden lg:table-cell px-4 py-4 whitespace-nowrap">
+                        <td class="hidden xl:table-cell px-4 py-4 whitespace-nowrap">
                             <div class="text-sm text-gray-900">{{ $blog->author_name }}</div>
                             <div class="text-xs text-gray-500">{{ $blog->author_dept }}</div>
                         </td>
                         <!-- Category visible only on sm screens and up -->
-                        <td class="hidden sm:table-cell px-4 py-4 whitespace-nowrap">
+                        <td class="hidden md:table-cell px-4 py-4 whitespace-nowrap">
                             @php
                                 $categoryColor = match(strtolower($blog->category)) {
                                     'technology' => 'bg-purple-100 text-purple-800',
