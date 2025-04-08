@@ -70,28 +70,28 @@ Route::prefix('admin')->group(function () {
     
     // Competition
     Route::get('/competition', function () {
-        return view('modules.admin.competition');
+        return view('modules.admin.competition.manage');
     })->name('admin.competition');
     
     Route::get('/competition/add', function () {
-        return view('modules.admin.competition_add');
+        return view('modules.admin.competition.add');
     })->name('admin.competition_add');
     
     Route::get('/competition/edit', function () {
-        return view('modules.admin.competition_edit');
+        return view('modules.admin.competition.edit');
     })->name('admin.competition_edit');
 
     // Blog
     Route::get('/blog', function () {
-        return view('modules.admin.blog');
+        return view('modules.admin.blog.manage');
     })->name('admin.blog');
     
     Route::get('/blog/add', function () {
-        return view('modules.admin.blog_add');
+        return view('modules.admin.blog.add');
     })->name('admin.blog_add');
     
     Route::get('/blog/edit', function () {
-        return view('modules.admin.blog_edit');
+        return view('modules.admin.blog.edit');
     })->name('admin.blog_edit');
 
 });
