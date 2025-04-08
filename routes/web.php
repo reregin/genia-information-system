@@ -94,4 +94,47 @@ Route::prefix('admin')->group(function () {
         return view('modules.admin.blog.edit');
     })->name('admin.blog.edit');
 
+    // News
+    Route::get('/news', function () {
+        // Create an empty collection with pagination for now
+        $news = new \Illuminate\Pagination\LengthAwarePaginator(
+            [], // Empty array of items
+            0,  // Total items
+            10, // Items per page
+            1   // Current page
+        );
+        return view('modules.admin.news.manage', compact('news'));
+    })->name('admin.news');
+    
+    Route::get('/news/add', function () {
+        return view('modules.admin.news.add');
+    })->name('admin.news.add');
+    
+    Route::get('/news/edit/{id}', function ($id) {
+        return view('modules.admin.news.edit', ['news' => (object)[
+            'id' => $id,
+            'title' => '',
+            'caption' => '',
+            'content' => '',
+            'level' => '',
+            'competition' => '',
+            'status' => '',
+            'thumbnail' => '',
+            'link' => '',
+            'publish_date' => '',
+            'slug' => ''
+        ]]);
+    })->name('admin.news.edit');
+
+    // API routes for news management
+    Route::put('/news/{id}', function ($id) {
+        // Update news logic here
+        return redirect()->route('admin.news');
+    })->name('admin.news.update');
+
+    Route::delete('/news/{id}', function ($id) {
+        // Delete news logic here
+        return response()->json(['success' => true]);
+    })->name('admin.news.delete');
+
 });
