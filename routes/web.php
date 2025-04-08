@@ -81,4 +81,17 @@ Route::prefix('admin')->group(function () {
         return view('modules.admin.competition_edit');
     })->name('admin.competition_edit');
 
+    // Blog
+    Route::get('/blog', function () {
+        return view('modules.admin.blog');
+    })->name('admin.blog');
+    
+    Route::get('/blog/add', function () {
+        return view('modules.admin.blog_add');
+    })->name('admin.blog_add');
+    
+    Route::get('/blog/edit', function () {
+        return view('modules.admin.blog_edit');
+    })->name('admin.blog_edit');
+
 });
