@@ -141,9 +141,9 @@
         <p class="mt-4 text-lg">
             Bergabunglah bersama UKM Genia dan jadilah bagian dari komunitas penuh semangat, tempat kompetisi menjadi wadah untuk tumbuh, berkolaborasi, dan meraih pencapaian bersama!
         </p>
-        <button class="mt-6 bg-blue-500 text-white px-6 py-3 rounded-lg text-lg hover:bg-blue-600 transition">
+        <a href="#footer" class="inline-block mt-6 bg-blue-500 text-white px-6 py-3 rounded-lg text-lg hover:bg-blue-600 transition">
             Get in touch
-        </button>
+        </a>
     </div>
 
     <div class="flex justify-end hidden md:flex">
