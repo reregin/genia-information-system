@@ -48,7 +48,7 @@
 
             <!-- CTA Button -->
             <div class="hidden lg:block">
-                <a
+                <a href="#footer"
                     class="inline-block px-6 py-2 border border-gray-900 rounded-full text-gray-900 hover:bg-gray-100 transition-colors font-figtree">
                     Get in touch
                 </a>
@@ -70,7 +70,7 @@
         @yield('content')
     </main>
 
-    <footer class="w-screen min-h-[550px] bg-[#001D3D] flex flex-col text-white">
+    <footer id="footer" class="w-screen min-h-[550px] bg-[#001D3D] flex flex-col text-white">
         <div class="max-w-7xl mx-auto px-4 py-8 md:py-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 md:gap-12">
             <!-- Grid 1: Logo Section -->
             <div class="flex justify-center sm:justify-start">
