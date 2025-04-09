@@ -55,13 +55,13 @@
 
             <!-- Buttons -->
             <div class="mt-2 md:mt-6 lg:mt-6 grid grid-cols-2 gap-3">
-                <a href="#" 
+                <a href="{{ route('awarded') }}" 
                     class="bg-blue-600 text-white py-2 px-3 md:py-3 md:px-5 rounded-full text-xs md:text-md lg:text-lg font-medium hover:bg-blue-700 transition duration-300 
                         w-[120px] h-[40px] md:w-[160px] md:h-[50px] lg:w-[187px] lg:h-[56px] flex items-center justify-center justify-self-end"
                 >
                     See our Awarded
                 </a>
-                <a href="#" 
+                <a href="#footer" 
                     class="bg-white text-blue-600 border-2 border-blue-600 py-2 px-3 md:py-3 md:px-5 rounded-full text-xs md:text-md lg:text-lg font-medium hover:bg-blue-600 hover:text-white transition duration-300 
                         w-[120px] h-[40px] md:w-[160px] md:h-[50px] lg:w-[187px] lg:h-[56px] flex items-center justify-center justify-self-start"
                 >
@@ -195,7 +195,7 @@
         <p class="text-base sm:text-lg lg:text-xl max-w-2xl">
             Dengan segala keterbatasan namun penuh semangat, kami bersatu membentuk UKM Genia sebagai wadah yang memudahkan mahasiswa mendapatkan informasi, mempersiapkan diri untuk berbagai kompetisi, dan berpartisipasi dalam diskusi yang memperkaya wawasan. Bersama UKM Genia, mari kita melangkah menuju masa depan yang lebih baik dengan optimisme dan kerendahan hati.
         </p>
-        <a href="#" 
+        <a href="/about-us" 
             class="bg-white text-gray-900 border-2 border-gray-900 py-2 px-4 rounded-full text-xs sm:text-lg font-medium hover:bg-gray-900 hover:text-white transition duration-300 
                 w-[150px] h-[45px] sm:w-[187px] sm:h-[56px] flex items-center justify-center"
         >
@@ -340,7 +340,7 @@
         <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl max-w-4xl">
             Our commitment is to boost students' energy to cultivate a medalist mentality.
         </h1>
-        <a href="#" 
+        <a href="#footer" 
             class="bg-gray-800 text-white py-2 px-4 rounded-full text-xs sm:text-lg font-medium hover:bg-black transition duration-300 
                 w-[150px] h-[45px] sm:w-[187px] sm:h-[56px] flex items-center justify-center"
         >
@@ -361,7 +361,7 @@
                         Answers to the frequently asked questions.
                     </h2>
                     <!-- Contact Us Button -->
-                    <a href="#" 
+                    <a href="#footer" 
                     class="mt-4 sm:mt-auto self-start px-4 py-2 border border-gray-900 text-gray-900 rounded-full 
                             hover:bg-gray-900 hover:text-white transition">
                         Contact us →
@@ -412,7 +412,7 @@
                         </p>
                     </div>
                     <!-- Contact Us Button -->
-                    <a href="#" class="mt-6 sm:mt-8 px-4 py-2 border border-gray-900 text-gray-900 rounded-full hover:bg-gray-900 hover:text-white transition mr-auto">
+                    <a href="{{ route('blog') }}" class="mt-6 sm:mt-8 px-4 py-2 border border-gray-900 text-gray-900 rounded-full hover:bg-gray-900 hover:text-white transition mr-auto">
                         See all
                     </a>
                 </div>
