@@ -45,7 +45,7 @@
         <!-- Hero Content -->
         <div class="mt-6 md:mt-16 lg:mt-32 mx-auto text-center w-full max-w-[592px] min-h-[250px] md:min-h-[300px] lg:min-h-[334px] flex flex-col justify-center px-4 md:px-8 lg:px-0 py-8">
             <p class="mb-2 text-[10px] md:text-sm lg:text-base text-[#5568CB]">Powering Tomorrow</p>
-            <h1 class="mb-3 text-4xl md:text-6xl lg:text-8xl font-bold leading-tight md:leading-snug lg:leading-none tracking-tight text-gray-900 py-1 md:py-4 lg:py-8">
+            <h1 class="mb-3 text-4xl md:text-6xl lg:text-8xl font-bold leading-none tracking-tight text-gray-900 py-1 md:py-4 lg:py-8">
                 Mari Melek<span
                     class="text-transparent bg-clip-text bg-gradient-to-r from-[#0038FF] via-[#0038FF]/50 to-[#6D99DA]"><br>Prestasi</span>
             </h1>
