@@ -370,7 +370,7 @@ $competitions = [$competition1, $competition2, $competition3];
                 <div class="flex-grow">
                     <input type="text" name="search" placeholder="Search competitions..." value="{{ request('search') }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                 </div>
-                <div class="w-full sm:w-auto">
+                <div class="flex-grow">
                      <select name="level" class="w-full h-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                         <option value="">All Levels</option>
                         <option value="Nasional" {{ request('level') == 'Nasional' ? 'selected' : '' }}>Nasional</option>
@@ -378,7 +378,7 @@ $competitions = [$competition1, $competition2, $competition3];
                         <option value="Regional" {{ request('level') == 'Regional' ? 'selected' : '' }}>Regional</option>
                     </select>
                 </div>
-                <div class="w-full sm:w-auto">
+                <div class="flex-grow">
                      <select name="category" class="w-full h-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                         <option value="">All Categories</option>
                         <option value="Riset dan Inovasi" {{ request('category') == 'Riset dan Inovasi' ? 'selected' : '' }}>Riset dan Inovasi</option>
