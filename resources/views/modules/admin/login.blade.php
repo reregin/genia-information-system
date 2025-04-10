@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Using Tailwind CSS CDN for static version -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    @vite('resources/css/app.css')
     <title>Admin Login - UKM Genia</title>
-    <!-- Update logo path according to your public directory structure -->
     <link rel="icon" type="image/svg" href="{{ asset('images/UKM GENIA LOGO 1.svg') }}">
 </head>
 <body class="bg-gray-50 min-h-screen flex items-center justify-center">
