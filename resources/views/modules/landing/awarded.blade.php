@@ -16,7 +16,7 @@
                     Mereka Bisa, Teman-teman Juga Pasti Bisa! UKM Genia Membuka Jalammu Menuju Prestasi Nasional
                 </p>
                 <div>
-                    <a href="#"
+                    <a href="{{ route('blog') }}"
                         class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 sm:py-3 px-5 sm:px-7 rounded-[200px] transition-colors">
                             Learn from them
                     </a>
@@ -54,9 +54,10 @@
                             TIM PKM-PM
                         </h3>
                         <p class="text-base text-gray-700 leading-relaxed">
-                            EV uses electricity as a power source, which can be generated from renewable energy sources. Our solutions help reduce greenhouse gas emissions in the transportation sector.
+                            TIM PKM-PM Berhasil membawa Fakultas Teknik Menembus PIMNAS dengan karya "PAX-MENTIS: Audio Therapy dengan Muatan Afirmasi Positif sebagai Upaya Peningkatan 
+                            Kualitas Hidup Lanjut Usia di Panti Werdha Damai Ranomuut"
                         </p>
-                        <a href="#" class="inline-block text-blue-600 hover:text-blue-700 hover:underline">
+                        <a href="{{ route('details_blog') }}" class="inline-block text-blue-600 hover:text-blue-700 hover:underline">
                             Read more
                         </a>
                     </div>
@@ -104,7 +105,7 @@
                         <p class="text-base text-gray-700 leading-relaxed">
                             Tim PEKZPEKZ berhasil mengukir sejarah, Perdana membawa Prodi Informatika ketahap Nasional dalam kompetisi Gemastik ke 17 di Universitas Negeri Semarang dengan membawakan karya Ergonomi dalam Fasilitas Publik : Upaya Meningkatkan Mobilitas Lansia dengan Pendekatan Association Rule Mining
                         </p>
-                        <a href="#" class="inline-block text-blue-600 hover:text-blue-700 hover:underline">
+                        <a href="{{ route('details_blog') }}" class="inline-block text-blue-600 hover:text-blue-700 hover:underline">
                             Read more
                         </a>
                     </div>
