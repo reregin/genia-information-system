@@ -23,7 +23,7 @@
 <div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-x-8 mt-8 p-6 lg:p-12">
         <div class="col-span-1 md:col-span-1 lg:col-span-5 flex flex-col p-6 text-center md:text-left">
-            <h2 class="text-4xl md:text-5xl lg:text-6xl font-normal leading-tight">
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-normal">
                 About Us
             </h2>
             <p class="text-lg md:text-xl mt-2">
