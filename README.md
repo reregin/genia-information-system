@@ -1,6 +1,5 @@
-Genia Information System💡
-
-This project is a web application built using the Laravel framework (version 11+). Based on the structure, it appears to be an information system featuring modules for managing and displaying content such as Blogs, News, and Competitions, along with an administrative backend.
+# Genia Information System💡
+Website dari genia untuk semua 😀
 
 ## ✨ Features
 
