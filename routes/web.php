@@ -41,6 +41,12 @@ Route::get('/details_competition', function () {
     return view('modules.competition.details_competition');
 })->name('details_competition');
 
+Route::get('/details_participant', function () {
+    return view('modules.competition.details_participant');
+})->name('details_participant');
+
+
+
 // ====================
 // BLOG
 // ====================
@@ -100,9 +106,8 @@ Route::prefix('admin')->group(function () {
 
     // News
     Route::get('/news', function () {
-        // Create an empty collection with pagination for now
         $news = new \Illuminate\Pagination\LengthAwarePaginator(
-            [], // Empty array of items
+            [],
             0,  // Total items
             10, // Items per page
             1   // Current page

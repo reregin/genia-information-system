@@ -110,8 +110,8 @@
                         </a>
                     </div>
 
-                    <div class="px-4 sm:px-0">
-                        <div class="grid grid-rows-2 gap-4">
+                    <div class="flex justify-center items-center px-4 sm:px-0">
+                        <div class="grid grid-rows-1 gap-4">
                             <div class="flex flex-row gap-4 h-auto sm:h-[287px] aspect-[16/9]">
                                 <img src="{{ asset('images/g1p.svg') }}" alt="Portrait 1" class="w-[150px] object-cover rounded-lg">
                                 <div class="flex flex-col gap-4 flex-1">
@@ -119,10 +119,10 @@
                                     <img src="{{ asset('images/g3l.svg') }}" alt="Landscape 2" class="w-full h-full object-cover rounded-lg">
                                 </div>
                             </div>
-                            <div class="grid grid-cols-2 gap-4">
+                            <!-- <div class="grid grid-cols-2 gap-4">
                                 <img src="{{ asset('images/g4l.svg') }}" alt="Landscape 3" class="w-full h-auto object-cover rounded-lg">
                                 <img src="{{ asset('images/g5l.svg') }}" alt="Landscape 4" class="w-full h-auto object-cover rounded-lg">
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>

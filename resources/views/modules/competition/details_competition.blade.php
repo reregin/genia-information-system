@@ -138,8 +138,8 @@ $competition = (object)[
                     </div>
                 </div>
                 <div class="flex flex-wrap gap-3">
+                    <a href="{{ route('details_participant') }}" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-6 rounded-md transition">Register Now</a>
                     @if($competition->registration_open)
-                        <a href="{{ route('competitions.register', $competition->id) }}" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-6 rounded-md transition">Register Now</a>
                     @endif
                     <a href="{{ $competition->guidebook_url }}" class="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 px-6 rounded-md transition">Download Guidebook</a>
                 </div>
@@ -147,12 +147,6 @@ $competition = (object)[
         </div>
     </div>
     
-    <div class="w-screen h-screen">
-    <iframe 
-        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTPQHWbbASeUV39B1V8KZnlDaErnW-SBKZ5mvGujA9gwHdzPLenyRtixwWXneeqZLnXx69_J6MhJCaF/pubhtml?gid=1403662745&amp;single=true&amp;widget=true&amp;headers=false"
-        class="w-full h-full border-0"
-    ></iframe>
-    </div>
 
     <!-- Navigation Tabs -->
     <div class="mb-8 border-b border-gray-200">
