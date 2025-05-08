@@ -14,7 +14,7 @@
             </h2>
         </div>
 
-        <form action="" method="POST" enctype="multipart/form-data" class="space-y-6">
+        <form action="{{ route('admin.news.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
             @csrf
             
             <!-- Basic Information -->
@@ -143,7 +143,7 @@
 
             <!-- Form Actions -->
             <div class="flex items-center justify-end space-x-3 pt-6">
-                <button type="button" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500">
+                <button type="button" onclick="window.location='{{ route('admin.news') }}'" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500">
                     Cancel
                 </button>
                 <button type="submit" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">

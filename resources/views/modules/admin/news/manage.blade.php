@@ -86,7 +86,7 @@
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
                         @foreach($news as $item)
-                        <tr>
+                        <tr data-news-id="{{ $item->id }}">
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="flex items-center">
                                     <div class="flex-shrink-0 h-10 w-10">
@@ -119,7 +119,7 @@
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                 <a href="{{ route('admin.news.edit', $item->id) }}" class="text-blue-600 hover:text-blue-900 mr-3">Edit</a>
-                                <button onclick="deleteNews({{ $item->id }})" class="text-red-600 hover:text-red-900">Delete</button>
+                                <button data-news-id="{{ $item->id }}" class="text-red-600 hover:text-red-900">Delete</button>
                             </td>
                         </tr>
                         @endforeach
@@ -143,10 +143,10 @@
         <h3 class="text-lg font-medium text-gray-900 mb-4">Confirm Delete</h3>
         <p class="text-gray-500 mb-6">Are you sure you want to delete this news? This action cannot be undone.</p>
         <div class="flex justify-end space-x-3">
-            <button onclick="closeDeleteModal()" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200">
+            <button href="{{ route('admin.news.edit', $item->id) }}" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200">
                 Cancel
             </button>
-            <button onclick="confirmDelete()" class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700">
+            <button data-news-id="{{ $item->id }}" class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700">
                 Delete
             </button>
         </div>
@@ -174,16 +174,51 @@ function confirmDelete() {
         fetch(`/admin/news/${newsIdToDelete}`, {
             method: 'DELETE',
             headers: {
-                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
             }
         }).then(response => {
             if (response.ok) {
-                window.location.reload();
+                // Remove the row from the table
+                const row = document.querySelector(`tr[data-news-id="${newsIdToDelete}"]`);
+                if (row) {
+                    row.remove();
+                }
+                // If no more news items, show the empty state
+                const tbody = document.querySelector('tbody');
+                if (tbody && tbody.children.length === 0) {
+                    window.location.reload();
+                }
+                // Show success message
+                alert('News deleted successfully');
+            } else {
+                response.json().then(data => {
+                    alert(data.message || 'Failed to delete news. Please try again.');
+                });
             }
+        }).catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred while deleting the news. Please try again.');
+        }).finally(() => {
+            closeDeleteModal();
         });
     }
-    closeDeleteModal();
 }
+
+// Add event listener for delete button clicks
+document.addEventListener('DOMContentLoaded', function() {
+    // Add click event listeners to all delete buttons
+    document.querySelectorAll('button[onclick^="deleteNews"]').forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const newsId = this.getAttribute('data-news-id');
+            if (newsId) {
+                deleteNews(newsId);
+            }
+        });
+    });
+});
 
 // Filter functionality
 document.querySelectorAll('select[id$="-filter"], input#search').forEach(element => {
