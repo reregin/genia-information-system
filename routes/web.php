@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\BlogController;
 
 
 // ====================
@@ -51,17 +53,9 @@ Route::get('/details_participant', function () {
 // ====================
 // BLOG
 // ====================
-Route::get('/blog', function () {
-    return view('modules.blog.blog');
-})->name('blog');
-
-Route::get('/details_blog', function () {
-    return view('modules.blog.details_blog');
-})->name('details_blog');
-
-Route::get('/send_blog', function () {
-    return view('modules.blog.send_blog');
-})->name('send_blog');
+Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+Route::get('/details_blog/{slug?}', [BlogController::class, 'show'])->name('details_blog');
+Route::get('/send_blog', [BlogController::class, 'submitForm'])->name('send_blog');
 
 
 // ====================
@@ -95,9 +89,16 @@ Route::prefix('admin')->group(function () {
         })->name('admin.competition.edit');
 
         // Blog
-        Route::get('/blog', function () {
-            return view('modules.admin.blog.manage');
-        })->name('admin.blog');
+//         Route::get('/blog', function () {
+//             return view('modules.admin.blog.manage');
+//         })->name('admin.blog');
+        // Blog
+        Route::get('/blog', [AdminBlogController::class, 'index'])->name('');
+        Route::get('/blog/add', [AdminBlogController::class, 'create'])->name('.add');
+        Route::post('/blog/add', [AdminBlogController::class, 'store'])->name('.store');
+        Route::get('/blog/edit/{blog?}', [AdminBlogController::class, 'edit'])->name('.edit');
+        Route::put('/blog/edit/{blog}', [AdminBlogController::class, 'update'])->name('.update');
+        Route::delete('/{blog}', [AdminBlogController::class, 'destroy'])->name('.delete');
 
         Route::get('/blog/add', function () {
             return view('modules.admin.blog.add');
