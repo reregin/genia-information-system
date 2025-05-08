@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\AdminBlogController;
 
 
 // ====================
@@ -36,13 +37,17 @@ Route::get('/details_news', function () {
 // ====================
 // COMPETITION
 // ====================
-Route::get('/competition', function () {
-    return view('modules.competition.competition');
-})->name('competition');
+// Route::get('/competition', function () {
+//     return view('modules.competition.competition');
+// })->name('competition');
 
-Route::get('/details_competition', function () {
-    return view('modules.competition.details_competition');
-})->name('details_competition');
+// Route::get('/details_competition', function () {
+//     return view('modules.competition.details_competition');
+// })->name('details_competition');
+
+Route::get('/competition', [App\Http\Controllers\CompetitionController::class, 'index'])->name('competition');
+
+Route::get('/competition/{id}', [App\Http\Controllers\CompetitionController::class, 'show'])->name('competition.details');
 
 Route::get('/details_participant', function () {
     return view('modules.competition.details_participant');
@@ -76,9 +81,9 @@ Route::prefix('admin')->group(function () {
         })->name('admin.dashboard');
 
         // Competition
-        Route::get('/competition', function () {
-            return view('modules.admin.competition.manage');
-        })->name('admin.competition');
+        // Route::get('/competition', function () {
+        //     return view('modules.admin.competition.manage');
+        // })->name('admin.competition');
 
         Route::get('/competition/add', function () {
             return view('modules.admin.competition.add');
@@ -88,17 +93,24 @@ Route::prefix('admin')->group(function () {
             return view('modules.admin.competition.edit');
         })->name('admin.competition.edit');
 
+        Route::get('/competitions', [App\Http\Controllers\AdminCompetitionController::class, 'index'])->name('admin.competition');
+        Route::get('/competitions/create', [App\Http\Controllers\AdminCompetitionController::class, 'create'])->name('admin.competition.create');
+        Route::post('/competitions', [App\Http\Controllers\AdminCompetitionController::class, 'store'])->name('admin.competition.store');
+        Route::get('/competitions/{id}/edit', [App\Http\Controllers\AdminCompetitionController::class, 'edit'])->name('admin.competition.edit');
+        Route::put('/competitions/{id}', [App\Http\Controllers\AdminCompetitionController::class, 'update'])->name('admin.competition.update');
+        Route::delete('/competitions/{id}', [App\Http\Controllers\AdminCompetitionController::class, 'destroy'])->name('admin.competition.destroy');
+
         // Blog
 //         Route::get('/blog', function () {
 //             return view('modules.admin.blog.manage');
 //         })->name('admin.blog');
         // Blog
-        Route::get('/blog', [AdminBlogController::class, 'index'])->name('');
-        Route::get('/blog/add', [AdminBlogController::class, 'create'])->name('.add');
-        Route::post('/blog/add', [AdminBlogController::class, 'store'])->name('.store');
-        Route::get('/blog/edit/{blog?}', [AdminBlogController::class, 'edit'])->name('.edit');
-        Route::put('/blog/edit/{blog}', [AdminBlogController::class, 'update'])->name('.update');
-        Route::delete('/{blog}', [AdminBlogController::class, 'destroy'])->name('.delete');
+        Route::get('/blog', [AdminBlogController::class, 'index'])->name('admin.blog');
+        Route::get('/blog/add', [AdminBlogController::class, 'create'])->name('admin.blog.add');
+        Route::post('/blog/add', [AdminBlogController::class, 'store'])->name('admin.blog.store');
+        Route::get('/blog/edit/{blog?}', [AdminBlogController::class, 'edit'])->name('admin.blog.edit');
+        Route::put('/blog/edit/{blog}', [AdminBlogController::class, 'update'])->name('admin.blog.update');
+        Route::delete('/{blog}', [AdminBlogController::class, 'destroy'])->name('admin.blog.delete');
 
         Route::get('/blog/add', function () {
             return view('modules.admin.blog.add');
