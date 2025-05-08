@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BlogController;
+
 use App\Http\Controllers\AdminBlogController;
 
 
@@ -66,32 +67,38 @@ Route::get('/send_blog', [BlogController::class, 'submitForm'])->name('send_blog
 // ====================
 // ADMIN
 // ====================
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->name('admin.')->group(function () {
+    // Dashboard
+    Route::get('/', function () {
+        return view('modules.admin.index');
+    })->name('dashboard');
 
     // Login Routes
     Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
-    Route::post('login', [LoginController::class, 'login'])->name('admin.login.submit');
-    Route::post('logout', [LoginController::class, 'logout'])->name('admin.logout');
+    Route::post('login', [LoginController::class, 'login'])->name('login.submit');
+    Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
     // Authenticated Admin Routes
     Route::middleware('auth')->group(function () {
         // Dashboard
         Route::get('/dashboard', function () {
             return view('modules.admin.index');
-        })->name('admin.dashboard');
+        })->name('dashboard');
 
         // Competition
+
         // Route::get('/competition', function () {
         //     return view('modules.admin.competition.manage');
         // })->name('admin.competition');
 
+
         Route::get('/competition/add', function () {
             return view('modules.admin.competition.add');
-        })->name('admin.competition.add');
+        })->name('competition.add');
 
         Route::get('/competition/edit', function () {
             return view('modules.admin.competition.edit');
-        })->name('admin.competition.edit');
+        })->name('competition.edit');
 
         Route::get('/competitions', [App\Http\Controllers\AdminCompetitionController::class, 'index'])->name('admin.competition');
         Route::get('/competitions/create', [App\Http\Controllers\AdminCompetitionController::class, 'create'])->name('admin.competition.create');
@@ -100,7 +107,16 @@ Route::prefix('admin')->group(function () {
         Route::put('/competitions/{id}', [App\Http\Controllers\AdminCompetitionController::class, 'update'])->name('admin.competition.update');
         Route::delete('/competitions/{id}', [App\Http\Controllers\AdminCompetitionController::class, 'destroy'])->name('admin.competition.destroy');
 
-        // Blog
+      
+
+        // News Routes
+        Route::get('/news', [App\Http\Controllers\Admin\NewsController::class, 'index'])->name('news');
+        Route::get('/news/add', [App\Http\Controllers\Admin\NewsController::class, 'create'])->name('news.add');
+        Route::post('/news', [App\Http\Controllers\Admin\NewsController::class, 'store'])->name('news.store');
+        Route::get('/news/edit/{id}', [App\Http\Controllers\Admin\NewsController::class, 'edit'])->name('news.edit');
+        Route::put('/news/{id}', [App\Http\Controllers\Admin\NewsController::class, 'update'])->name('news.update');
+        Route::delete('/news/{id}', [NewsController::class, 'destroy'])->name('admin.news.destroy');
+
 //         Route::get('/blog', function () {
 //             return view('modules.admin.blog.manage');
 //         })->name('admin.blog');
@@ -161,6 +177,6 @@ Route::prefix('admin')->group(function () {
             // Delete news logic here
             return response()->json(['success' => true]);
         })->name('admin.news.delete');
-    });
 
+    });
 });
