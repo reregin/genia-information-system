@@ -18,39 +18,51 @@
     <div class="flex h-screen overflow-hidden">
         <!-- Sidebar -->
         <aside id="sidebar"
-               class="sidebar fixed z-30 inset-y-0 left-0 w-64 bg-white shadow-lg transform -translate-x-full md:translate-x-0 md:static md:inset-0">
-            <div class="p-4">
+               class="sidebar fixed z-30 inset-y-0 left-0 w-64 bg-white shadow-lg transform -translate-x-full md:translate-x-0 md:static md:inset-0 flex flex-col">
+            <div class="p-4 flex-shrink-0">
                 <!-- Logo -->
                 <div class="w-48 h-20 mx-auto">
                     <img src="{{ asset('images/Group 3.png') }}" alt="UKM Genia Logo"
                          class="object-contain w-full h-full">
                 </div>
+            </div>
 
-                <!-- Navigation -->
-                <nav class="mt-8">
-                    <ul class="space-y-2">
-                        <li>
-                            <a href="{{ route('admin.dashboard') }}" class="flex items-center p-3 text-gray-700 hover:bg-blue-50 rounded-lg hover:text-blue-600 transition">
-                                <span class="ml-3">Dashboard</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('admin.competition') }}" class="flex items-center p-3 text-gray-700 hover:bg-blue-50 rounded-lg hover:text-blue-600 transition">
-                                <span class="ml-3">Competitions</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('admin.blog') }}" class="flex items-center p-3 text-gray-700 hover:bg-blue-50 rounded-lg hover:text-blue-600 transition">
-                                <span class="ml-3">Blog</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('admin.news') }}" class="flex items-center p-3 text-gray-700 hover:bg-blue-50 rounded-lg hover:text-blue-600 transition">
-                                <span class="ml-3">News</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+            <!-- Navigation -->
+            <nav class="mt-8 px-4 flex-grow overflow-y-auto">
+                <ul class="space-y-2">
+                    <li>
+                        <a href="{{ route('admin.dashboard') }}" class="flex items-center p-3 text-gray-700 hover:bg-blue-50 rounded-lg hover:text-blue-600 transition">
+                            <span class="ml-3">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.competition') }}" class="flex items-center p-3 text-gray-700 hover:bg-blue-50 rounded-lg hover:text-blue-600 transition">
+                            <span class="ml-3">Competitions</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.blog') }}" class="flex items-center p-3 text-gray-700 hover:bg-blue-50 rounded-lg hover:text-blue-600 transition">
+                            <span class="ml-3">Blog</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.news') }}" class="flex items-center p-3 text-gray-700 hover:bg-blue-50 rounded-lg hover:text-blue-600 transition">
+                            <span class="ml-3">News</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Logout Button -->
+            <div class="p-4 mt-auto flex-shrink-0 border-t border-gray-200">
+                <form method="POST" action="{{ route('admin.logout') }}">
+                    @csrf
+                    <button type="submit" 
+                            class="flex items-center w-full p-3 text-red-600 hover:bg-red-50 rounded-lg hover:text-red-800 transition">
+                        <!-- Optional: Add an icon here -->
+                        <span class="ml-3">Logout</span>
+                    </button>
+                </form>
             </div>
         </aside>
 
@@ -103,19 +115,27 @@
             const isClickMenuButton = menuBtn.contains(e.target);
 
             // Only hide on mobile view
-            const isMobile = window.innerWidth < 768;
+            const isMobile = window.innerWidth < 768; // md breakpoint
 
-            if (!isClickInsideSidebar && !isClickMenuButton && isMobile) {
+            if (!isClickInsideSidebar && !isClickMenuButton && isMobile && !sidebar.classList.contains('-translate-x-full')) {
                 sidebar.classList.add('-translate-x-full');
             }
         });
 
-        // Ensure sidebar hides when resizing to mobile
+        // Adjust sidebar based on resize
         window.addEventListener('resize', () => {
-            if (window.innerWidth < 768) {
-                sidebar.classList.add('-translate-x-full');
+             if (window.innerWidth >= 768) { // md breakpoint
+                sidebar.classList.remove('-translate-x-full'); // Show sidebar on desktop
+            } else {
+                sidebar.classList.add('-translate-x-full'); // Ensure it's hidden on mobile if not toggled
             }
         });
+
+        // Initial check on load
+        if (window.innerWidth < 768) {
+             sidebar.classList.add('-translate-x-full');
+        }
+
     </script>
 
 </body>
