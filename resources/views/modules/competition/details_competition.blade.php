@@ -1,131 +1,24 @@
 @extends('layouts.app', [
     'path' => ['Competitions', 'Details']
 ])
-<?php
-$competition = (object)[
-  'id' => 1,
-  'name' => 'Olimpiade Nasional Matematika dan Ilmu Pengetahuan Alam Perguruan Tinggi 2024',
-  'logo' => "logo-onmipa.png", // Assuming you have this image
-  'categories' => ['Riset dan Inovasi', 'Akademik'],
-  'start_date' => \Carbon\Carbon::parse('2024-02-19'),
-  'end_date' => \Carbon\Carbon::parse('2024-05-17'),
-  'location' => 'Provinsi - Nasional',
-  'level' => 'Nasional',
-  'organizer' => 'Kementerian Pendidikan dan Kebudayaan',
-  'registration_open' => false,
-  'guidebook_url' => '#',
-  'overview' => '<p>Olimpiade Nasional Matematika dan IPA (ONMIPA) Perguruan Tinggi adalah kompetisi akademik tingkat nasional yang diselenggarakan untuk mahasiswa S1/Diploma se-Indonesia. Kompetisi ini bertujuan untuk meningkatkan kemampuan akademik, kreativitas, dan inovasi mahasiswa dalam bidang matematika dan ilmu pengetahuan alam.</p>
-                    <p>Kompetisi ini memiliki 4 bidang lomba, yaitu:</p>
-                    <ul class="list-disc pl-5">
-                      <li>Matematika</li>
-                      <li>Fisika</li>
-                      <li>Kimia</li>
-                      <li>Biologi</li>
-                    </ul>
-                    <p>Setiap perguruan tinggi dapat mengirimkan maksimal 2 peserta untuk setiap bidang lomba. Peserta yang lolos seleksi tingkat perguruan tinggi akan mengikuti seleksi tingkat wilayah, dan pemenang tingkat wilayah akan maju ke tingkat nasional.</p>',
-  'timelines' => [
-    (object)[
-      'title' => 'Pendaftaran & Seleksi Internal PT',
-      'start_date' => \Carbon\Carbon::parse('2024-02-19'),
-      'end_date' => \Carbon\Carbon::parse('2024-03-15'),
-      'description' => 'Peserta mendaftar melalui perguruan tinggi masing-masing dan mengikuti seleksi internal.'
-    ],
-    (object)[
-      'title' => 'Seleksi Tingkat Wilayah',
-      'start_date' => \Carbon\Carbon::parse('2024-03-25'),
-      'end_date' => \Carbon\Carbon::parse('2024-04-10'),
-      'description' => 'Perwakilan perguruan tinggi mengikuti seleksi tingkat wilayah yang diselenggarakan oleh LLDIKTI.'
-    ],
-    (object)[
-      'title' => 'Pengumuman Hasil Seleksi Wilayah',
-      'start_date' => \Carbon\Carbon::parse('2024-04-20'),
-      'end_date' => null,
-      'description' => 'Pengumuman peserta yang lolos ke tingkat nasional.'
-    ],
-    (object)[
-      'title' => 'Final Tingkat Nasional',
-      'start_date' => \Carbon\Carbon::parse('2024-05-10'),
-      'end_date' => \Carbon\Carbon::parse('2024-05-17'),
-      'description' => 'Kompetisi tingkat nasional dan upacara penganugerahan pemenang.'
-    ]
-  ],
-  'first_prize' => 25000000,
-  'first_prize_description' => 'Medali Emas, Sertifikat, dan Piala Bergilir',
-  'second_prize' => 15000000,
-  'second_prize_description' => 'Medali Perak dan Sertifikat',
-  'third_prize' => 10000000,
-  'third_prize_description' => 'Medali Perunggu dan Sertifikat',
-  'additional_prizes' => '<p>Selain hadiah utama, pemenang juga berkesempatan untuk:</p>
-                             <ul class="list-disc pl-5">
-                               <li>Beasiswa pendidikan lanjut</li>
-                               <li>Kesempatan magang di perusahaan partner</li>
-                               <li>Mengikuti forum ilmiah internasional</li>
-                             </ul>',
-  'rules' => '<h3>Persyaratan Peserta</h3>
-                  <ul class="list-disc pl-5">
-                    <li>Mahasiswa aktif jenjang S1/Diploma perguruan tinggi di Indonesia</li>
-                    <li>Maksimal berusia 23 tahun per 31 Desember 2024</li>
-                    <li>Belum pernah menjadi juara 1 ONMIPA tingkat nasional</li>
-                    <li>Mendapatkan rekomendasi dari perguruan tinggi</li>
-                  </ul>
-                  <h3>Ketentuan Lomba</h3>
-                  <ul class="list-disc pl-5">
-                    <li>Peserta wajib mengikuti seluruh rangkaian kegiatan</li>
-                    <li>Peserta akan diuji melalui tes tertulis dan praktikum</li>
-                    <li>Peserta wajib mematuhi tata tertib yang ditetapkan panitia</li>
-                    <li>Keputusan juri bersifat final dan tidak dapat diganggu gugat</li>
-                  </ul>',
-  'faqs' => [
-    (object)[
-      'question' => 'Bagaimana cara mendaftar ONMIPA 2024?',
-      'answer' => 'Pendaftaran dilakukan melalui perguruan tinggi masing-masing. Setiap PT akan melakukan seleksi internal untuk menentukan perwakilan yang akan dikirim ke tingkat wilayah.'
-    ],
-    (object)[
-      'question' => 'Berapa biaya pendaftaran ONMIPA 2024?',
-      'answer' => 'ONMIPA tidak memungut biaya pendaftaran. Seluruh biaya pelaksanaan ditanggung oleh Kementerian Pendidikan dan Kebudayaan.'
-    ],
-    (object)[
-      'question' => 'Apakah boleh mendaftar lebih dari satu bidang lomba?',
-      'answer' => 'Tidak, setiap peserta hanya diperbolehkan mengikuti satu bidang lomba.'
-    ],
-    (object)[
-      'question' => 'Apa format tes yang akan diberikan?',
-      'answer' => 'Format tes terdiri dari babak penyisihan (tes tertulis) dan babak final (tes tertulis dan praktikum/pemecahan masalah).'
-    ]
-  ],
-  'contacts' => [
-    (object)[
-      'name' => 'Dr. Budi Santoso',
-      'role' => 'Ketua Pelaksana',
-      'phone' => '+6281234567890',
-      'email' => 'budi.santoso@kemdikbud.go.id',
-      'whatsapp' => '+6281234567890'
-    ],
-    (object)[
-      'name' => 'Siti Aminah, M.Sc',
-      'role' => 'Sekretariat',
-      'phone' => '+6289876543210',
-      'email' => 'siti.aminah@kemdikbud.go.id',
-      'whatsapp' => '+6289876543210'
-    ]
-  ]
-    ];
-  $relatedCompetitions = [];
-?>
+
 @section('content')
 <div class="container mx-auto py-8 px-4">
     <!-- Competition Header -->
     <div class="bg-white rounded-lg shadow-md p-6 mb-8">
         <div class="flex flex-col md:flex-row items-start md:items-center">
             <div class="w-full md:w-1/4 flex justify-center mb-6 md:mb-0">
-                <img src="{{ asset('images/' . $competition->logo) }}" alt="{{ $competition->name }}" class="h-48 object-contain">
+                <img src="{{ $competition->logo ? asset('storage/' . $competition->logo) : asset('images/default-logo.png') }}" 
+                     alt="{{ $competition->name }}" class="h-48 object-contain">
             </div>
             <div class="w-full md:w-3/4 md:pl-8">
                 <h1 class="text-3xl font-bold text-gray-800 mb-2">{{ $competition->name }}</h1>
                 <div class="flex flex-wrap gap-2 mb-4">
-                    @foreach($competition->categories as $category)
-                        <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm">{{ $category }}</span>
-                    @endforeach
+                    @if(is_array($competition->categories))
+                        @foreach($competition->categories as $category)
+                            <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm">{{ $category }}</span>
+                        @endforeach
+                    @endif
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                     <div>
@@ -138,16 +31,23 @@ $competition = (object)[
                     </div>
                 </div>
                 <div class="flex flex-wrap gap-3">
+                    <!-- @php
+                        $now = \Carbon\Carbon::now();
+                        $registrationOpen = $now->between($competition->registration_start_date, $competition->registration_end_date);
+                    @endphp -->
+                    
+                    <!-- @if($registrationOpen) -->
+                    <!-- @endif -->
+                    
                     <a href="{{ route('details_participant') }}" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-6 rounded-md transition">Register Now</a>
-                    @if($competition->registration_open)
+                    @if($competition->guidebook_url)
+                        <a href="{{ $competition->guidebook_url }}" class="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 px-6 rounded-md transition">Download Guidebook</a>
                     @endif
-                    <a href="{{ $competition->guidebook_url }}" class="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 px-6 rounded-md transition">Download Guidebook</a>
                 </div>
             </div>
         </div>
     </div>
     
-
     <!-- Navigation Tabs -->
     <div class="mb-8 border-b border-gray-200">
         <ul class="flex flex-wrap -mb-px">
@@ -168,7 +68,7 @@ $competition = (object)[
             </li>
             <li>
                 <a href="#contact" class="inline-block p-4 border-transparent border-b-2 hover:border-gray-300 font-medium text-gray-600 hover:text-gray-800">Contact</a>
-         </li>
+            </li>
         </ul>
     </div>
 
@@ -194,7 +94,10 @@ $competition = (object)[
                     </div>
                     <div class="bg-gray-50 rounded-lg p-4 flex-grow">
                         <h3 class="font-bold text-lg text-gray-800">{{ $timeline->title }}</h3>
-                        <p class="text-blue-600 font-medium mb-2">{{ $timeline->start_date->format('d M Y') }} @if($timeline->end_date) - {{ $timeline->end_date->format('d M Y') }} @endif</p>
+                        <p class="text-blue-600 font-medium mb-2">
+                            {{ $timeline->start_date->format('d M Y') }} 
+                            @if($timeline->end_date) - {{ $timeline->end_date->format('d M Y') }} @endif
+                        </p>
                         <p class="text-gray-700">{{ $timeline->description }}</p>
                     </div>
                 </div>
@@ -206,6 +109,7 @@ $competition = (object)[
     <div id="prizes" class="bg-white rounded-lg shadow-md p-6 mb-8">
         <h2 class="text-2xl font-bold text-gray-800 mb-4">Prizes</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            @if($competition->first_prize)
             <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-6 text-center">
                 <div class="inline-block p-4 bg-yellow-500 text-white rounded-full mb-4">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -216,6 +120,9 @@ $competition = (object)[
                 <p class="text-2xl font-bold text-yellow-600 mb-2">Rp {{ number_format($competition->first_prize, 0, ',', '.') }}</p>
                 <p class="text-gray-700">{{ $competition->first_prize_description }}</p>
             </div>
+            @endif
+
+            @if($competition->second_prize)
             <div class="bg-gray-50 border border-gray-200 rounded-lg p-6 text-center">
                 <div class="inline-block p-4 bg-gray-400 text-white rounded-full mb-4">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -226,6 +133,9 @@ $competition = (object)[
                 <p class="text-2xl font-bold text-gray-600 mb-2">Rp {{ number_format($competition->second_prize, 0, ',', '.') }}</p>
                 <p class="text-gray-700">{{ $competition->second_prize_description }}</p>
             </div>
+            @endif
+
+            @if($competition->third_prize)
             <div class="bg-orange-50 border border-orange-200 rounded-lg p-6 text-center">
                 <div class="inline-block p-4 bg-orange-500 text-white rounded-full mb-4">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -236,6 +146,7 @@ $competition = (object)[
                 <p class="text-2xl font-bold text-orange-600 mb-2">Rp {{ number_format($competition->third_prize, 0, ',', '.') }}</p>
                 <p class="text-gray-700">{{ $competition->third_prize_description }}</p>
             </div>
+            @endif
         </div>
         @if($competition->additional_prizes)
             <div class="mt-6">
@@ -248,14 +159,17 @@ $competition = (object)[
     </div>
 
     <!-- Rules Section -->
+    @if($competition->rules)
     <div id="rules" class="bg-white rounded-lg shadow-md p-6 mb-8">
         <h2 class="text-2xl font-bold text-gray-800 mb-4">Rules & Requirements</h2>
         <div class="prose max-w-none">
             {!! $competition->rules !!}
         </div>
     </div>
+    @endif
 
     <!-- FAQs Section -->
+    @if(count($competition->faqs) > 0)
     <div id="faqs" class="bg-white rounded-lg shadow-md p-6 mb-8">
         <h2 class="text-2xl font-bold text-gray-800 mb-4">Frequently Asked Questions</h2>
         <div class="space-y-4">
@@ -274,8 +188,10 @@ $competition = (object)[
             @endforeach
         </div>
     </div>
+    @endif
 
     <!-- Contact Section -->
+    @if(count($competition->contacts) > 0)
     <div id="contact" class="bg-white rounded-lg shadow-md p-6 mb-8">
         <h2 class="text-2xl font-bold text-gray-800 mb-4">Contact Information</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -292,25 +208,40 @@ $competition = (object)[
                         <h3 class="font-semibold text-lg">{{ $contact->name }}</h3>
                         <p class="text-gray-600">{{ $contact->role }}</p>
                         <div class="mt-2 space-y-1">
+                            @if($contact->phone)
                             <p class="flex items-center text-gray-700">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                                 </svg>
                                 {{ $contact->phone }}
                             </p>
+                            @endif
+                            
+                            @if($contact->email)
                             <p class="flex items-center text-gray-700">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                 </svg>
                                 {{ $contact->email }}
                             </p>
+                            @endif
+                            
                             @if($contact->whatsapp)
-                                <p class="flex items-center text-gray-700">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                                    </svg>
-                                    {{ $contact->whatsapp }} (WhatsApp)
-                                </p>
+                            <p class="flex items-center text-gray-700">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                                </svg>
+                                {{ $contact->whatsapp }} (WhatsApp)
+                            </p>
+                            @endif
+                            
+                            @if($contact->website)
+                            <p class="flex items-center text-gray-700">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                                </svg>
+                                <a href="{{ $contact->website }}" class="text-blue-500 hover:underline">Visit Website</a>
+                            </p>
                             @endif
                         </div>
                     </div>
@@ -318,7 +249,33 @@ $competition = (object)[
             @endforeach
         </div>
     </div>
-
-    
+    @endif
 </div>
+
+<script>
+    // Add JavaScript to make the FAQs interactive if needed
+    document.addEventListener('DOMContentLoaded', function() {
+        const faqButtons = document.querySelectorAll('#faqs button');
+        faqButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const content = this.nextElementSibling;
+                const isVisible = content.style.display !== 'none';
+                
+                if (isVisible) {
+                    content.style.display = 'none';
+                    this.querySelector('svg').style.transform = 'rotate(0deg)';
+                } else {
+                    content.style.display = 'block';
+                    this.querySelector('svg').style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+        
+        // Initialize all FAQs as closed
+        faqButtons.forEach(button => {
+            const content = button.nextElementSibling;
+            content.style.display = 'none';
+        });
+    });
+</script>
 @endsection

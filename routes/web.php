@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BlogController;
-use App\Http\Controllers\Admin\BlogController as AdminBlogController;
+
+use App\Http\Controllers\AdminBlogController;
 
 
 // ====================
@@ -37,13 +38,17 @@ Route::get('/details_news', function () {
 // ====================
 // COMPETITION
 // ====================
-Route::get('/competition', function () {
-    return view('modules.competition.competition');
-})->name('competition');
+// Route::get('/competition', function () {
+//     return view('modules.competition.competition');
+// })->name('competition');
 
-Route::get('/details_competition', function () {
-    return view('modules.competition.details_competition');
-})->name('details_competition');
+// Route::get('/details_competition', function () {
+//     return view('modules.competition.details_competition');
+// })->name('details_competition');
+
+Route::get('/competition', [App\Http\Controllers\CompetitionController::class, 'index'])->name('competition');
+
+Route::get('/competition/{id}', [App\Http\Controllers\CompetitionController::class, 'show'])->name('competition.details');
 
 Route::get('/details_participant', function () {
     return view('modules.competition.details_participant');
@@ -81,9 +86,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
         })->name('dashboard');
 
         // Competition
-        Route::get('/competition', function () {
-            return view('modules.admin.competition.manage');
-        })->name('competition');
+
+        // Route::get('/competition', function () {
+        //     return view('modules.admin.competition.manage');
+        // })->name('admin.competition');
+
 
         Route::get('/competition/add', function () {
             return view('modules.admin.competition.add');
@@ -93,13 +100,14 @@ Route::prefix('admin')->name('admin.')->group(function () {
             return view('modules.admin.competition.edit');
         })->name('competition.edit');
 
-        // Blog
-        Route::get('/blog', [AdminBlogController::class, 'index'])->name('blog');
-        Route::get('/blog/add', [AdminBlogController::class, 'create'])->name('blog.add');
-        Route::post('/blog/add', [AdminBlogController::class, 'store'])->name('blog.store');
-        Route::get('/blog/edit/{blog?}', [AdminBlogController::class, 'edit'])->name('blog.edit');
-        Route::put('/blog/edit/{blog}', [AdminBlogController::class, 'update'])->name('blog.update');
-        Route::delete('/blog/{blog}', [AdminBlogController::class, 'destroy'])->name('blog.delete');
+        Route::get('/competitions', [App\Http\Controllers\AdminCompetitionController::class, 'index'])->name('admin.competition');
+        Route::get('/competitions/create', [App\Http\Controllers\AdminCompetitionController::class, 'create'])->name('admin.competition.create');
+        Route::post('/competitions', [App\Http\Controllers\AdminCompetitionController::class, 'store'])->name('admin.competition.store');
+        Route::get('/competitions/{id}/edit', [App\Http\Controllers\AdminCompetitionController::class, 'edit'])->name('admin.competition.edit');
+        Route::put('/competitions/{id}', [App\Http\Controllers\AdminCompetitionController::class, 'update'])->name('admin.competition.update');
+        Route::delete('/competitions/{id}', [App\Http\Controllers\AdminCompetitionController::class, 'destroy'])->name('admin.competition.destroy');
+
+      
 
         // News Routes
         Route::get('/news', [App\Http\Controllers\Admin\NewsController::class, 'index'])->name('news');
@@ -108,5 +116,67 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/news/edit/{id}', [App\Http\Controllers\Admin\NewsController::class, 'edit'])->name('news.edit');
         Route::put('/news/{id}', [App\Http\Controllers\Admin\NewsController::class, 'update'])->name('news.update');
         Route::delete('/news/{id}', [NewsController::class, 'destroy'])->name('admin.news.destroy');
+
+//         Route::get('/blog', function () {
+//             return view('modules.admin.blog.manage');
+//         })->name('admin.blog');
+        // Blog
+        Route::get('/blog', [AdminBlogController::class, 'index'])->name('admin.blog');
+        Route::get('/blog/add', [AdminBlogController::class, 'create'])->name('admin.blog.add');
+        Route::post('/blog/add', [AdminBlogController::class, 'store'])->name('admin.blog.store');
+        Route::get('/blog/edit/{blog?}', [AdminBlogController::class, 'edit'])->name('admin.blog.edit');
+        Route::put('/blog/edit/{blog}', [AdminBlogController::class, 'update'])->name('admin.blog.update');
+        Route::delete('/{blog}', [AdminBlogController::class, 'destroy'])->name('admin.blog.delete');
+
+        Route::get('/blog/add', function () {
+            return view('modules.admin.blog.add');
+        })->name('admin.blog.add');
+
+        Route::get('/blog/edit', function () {
+            return view('modules.admin.blog.edit');
+        })->name('admin.blog.edit');
+
+        // News
+        Route::get('/news', function () {
+            $news = new \Illuminate\Pagination\LengthAwarePaginator(
+                [],
+                0,  // Total items
+                10, // Items per page
+                1   // Current page
+            );
+            return view('modules.admin.news.manage', compact('news'));
+        })->name('admin.news');
+
+        Route::get('/news/add', function () {
+            return view('modules.admin.news.add');
+        })->name('admin.news.add');
+
+        Route::get('/news/edit/{id}', function ($id) {
+            return view('modules.admin.news.edit', ['news' => (object)[
+                'id' => $id,
+                'title' => '',
+                'caption' => '',
+                'content' => '',
+                'level' => '',
+                'competition' => '',
+                'status' => '',
+                'thumbnail' => '',
+                'link' => '',
+                'publish_date' => '',
+                'slug' => ''
+            ]]);
+        })->name('admin.news.edit');
+
+        // API routes for news management
+        Route::put('/news/{id}', function ($id) {
+            // Update news logic here
+            return redirect()->route('admin.news');
+        })->name('admin.news.update');
+
+        Route::delete('/news/{id}', function ($id) {
+            // Delete news logic here
+            return response()->json(['success' => true]);
+        })->name('admin.news.delete');
+
     });
 });

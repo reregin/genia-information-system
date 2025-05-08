@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('slug')->unique(); // Add slug column
             $table->text('caption');
             $table->text('content')->nullable(); // For full blog content
             $table->date('publish_date');
