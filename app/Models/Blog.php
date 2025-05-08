@@ -11,6 +11,7 @@ class Blog extends Model
 
     protected $fillable = [
         'title',
+        'slug', // Add slug to fillable
         'caption',
         'content',
         'publish_date',
