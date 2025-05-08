@@ -14,7 +14,7 @@
             </h2>
         </div>
 
-        <form action="" method="POST" enctype="multipart/form-data" class="space-y-6"></form>
+        <form action="{{ route('admin.competition.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
             @csrf
             
             <!-- Basic Information -->

@@ -125,7 +125,7 @@ $competition = (object)[
         </div>
 
         {{-- Ganti route ke route update competition --}}
-        <form action="" method="POST" enctype="multipart/form-data" class="space-y-6">
+        <form action="{{ route('admin.competition.update', $competition->id) }}" method="POST" enctype="multipart/form-data" class="space-y-6">
             @csrf
             @method('PUT') {{-- Atau PATCH --}}
 
