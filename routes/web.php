@@ -86,20 +86,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
         })->name('dashboard');
 
         // Competition
-
-        // Route::get('/competition', function () {
-        //     return view('modules.admin.competition.manage');
-        // })->name('admin.competition');
-
-
         Route::get('/competition/add', function () {
             return view('modules.admin.competition.add');
         })->name('competition.add');
-
-        Route::get('/competition/edit', function () {
-            return view('modules.admin.competition.edit');
-        })->name('competition.edit');
-
+      
         Route::get('/competitions', [App\Http\Controllers\AdminCompetitionController::class, 'index'])->name('admin.competition');
         Route::get('/competitions/create', [App\Http\Controllers\AdminCompetitionController::class, 'create'])->name('admin.competition.create');
         Route::post('/competitions', [App\Http\Controllers\AdminCompetitionController::class, 'store'])->name('admin.competition.store');
