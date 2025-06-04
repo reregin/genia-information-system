@@ -32,7 +32,7 @@ return Application::configure(basePath: dirname(__DIR__))
             // Default fallback for any other unauthenticated requests.
             // This line will still cause an error if no global 'login' route exists
             // and a non-admin authenticated route is accessed.
-            return redirect()->guest(route('login'));
+            return redirect()->guest(route('admin.login'));
         });
 
     })->create();

@@ -67,6 +67,7 @@ Route::get('/send_blog', [BlogController::class, 'submitForm'])->name('send_blog
 // ====================
 // ADMIN
 // ====================
+Route::get('/login', fn () => redirect()->route('admin.login'))->name('login');
 Route::prefix('admin')->name('admin.')->group(function () {
     // Dashboard
     Route::get('/', function () {
