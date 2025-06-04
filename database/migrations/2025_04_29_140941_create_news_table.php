@@ -11,18 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('blogs', function (Blueprint $table) {
+        Schema::create('news', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('slug')->unique(); // Add slug column
             $table->text('caption');
-            $table->text('content')->nullable(); // For full blog content
+            $table->longText('content');
+            $table->enum('level', ['International', 'Regional', 'National']);
+            $table->enum('competition', ['PKM', 'GELATIK', 'ON MIPA PT', 'COMPFEST']);
+            $table->enum('status', ['Draft', 'Published'])->default('Draft');
+            $table->string('thumbnail');
             $table->date('publish_date');
-            $table->foreignId('category_id')->constrained();
-            $table->foreignId('author_id')->constrained();
+            $table->string('slug')->unique();
             $table->string('link')->nullable();
-            $table->string('thumbnail')->nullable();
-            $table->boolean('is_featured')->default(false);
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('blogs');
+        Schema::dropIfExists('news');
     }
 };
