@@ -14,12 +14,12 @@
             <div class="bg-white rounded-lg shadow-lg overflow-hidden mb-12">
                 <div class="md:flex">
                     <div class="md:w-1/2">
-                        <img src="{{ asset($featuredBlog->thumbnail) }}" alt="{{ $featuredBlog->title }}"
+                        <img src="{{ Storage::url($featuredBlog->thumbnail) }}" alt="{{ $featuredBlog->title }}"
                             class="w-full h-full object-cover">
                     </div>
                     <div class="md:w-1/2 p-8">
                         <div class="flex items-center mb-4">
-                            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full">NEW</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full">FEATURED</span>
                             <span class="ml-2 text-sm text-gray-500">{{ $featuredBlog->formatted_date }}</span>
                         </div>
                         <h2 class="text-2xl font-bold text-gray-800 mb-4">{{ $featuredBlog->title }}</h2>
@@ -57,7 +57,7 @@
             @forelse($blogs as $blog)
                 <div
                     class="bg-white rounded-lg shadow-md overflow-hidden transition transform hover:-translate-y-1 hover:shadow-lg">
-                    <img src="{{ asset($blog->thumbnail) }}" alt="{{ $blog->title }}" class="w-full h-48 object-cover">
+                    <img src="{{ Storage::url($blog->thumbnail) }}" alt="{{ $blog->title }}" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <div class="flex items-center mb-2">
                             <span

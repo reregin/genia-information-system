@@ -48,7 +48,7 @@
                     <a href="{{ route('admin.competition.add') }}" class="flex items-center justify-center p-4 text-center text-blue-600 rounded-lg bg-blue-50 hover:bg-blue-100 font-medium transition-colors">
                         New Competition
                     </a>
-                    <a href="{{ route('admin.blog.add') }}" class="flex items-center justify-center p-4 text-center text-orange-600 rounded-lg bg-orange-50 hover:bg-orange-100 font-medium transition-colors">
+                    <a href="{{ route('admin.blog.create') }}" class="flex items-center justify-center p-4 text-center text-orange-600 rounded-lg bg-orange-50 hover:bg-orange-100 font-medium transition-colors">
                         New Blog Post
                     </a>
                     <a href="{{ route('admin.news.add') }}" class="flex items-center justify-center p-4 text-center text-gray-600 rounded-lg bg-gray-100 hover:bg-gray-200 font-medium transition-colors">
