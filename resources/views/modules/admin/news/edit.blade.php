@@ -14,7 +14,7 @@
             </h2>
         </div>
 
-        <form action="{{ route('admin.news.update', $news->id) }}" method="POST" enctype="multipart/form-data" class="space-y-6">
+        <form action="{{ route('admin.news.update', $news->slug) }}" method="POST" enctype="multipart/form-data" class="space-y-6">
             @csrf
             @method('PUT')
             
@@ -27,14 +27,6 @@
                         <label for="title" class="block text-sm font-medium text-gray-700 mb-1">News Title <span class="text-red-600">*</span></label>
                         <input type="text" id="title" name="title" required value="{{ old('title', $news->title) }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                         @error('title')
-                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
-                        @enderror
-                    </div>
-
-                    <div class="col-span-1 md:col-span-2">
-                        <label for="caption" class="block text-sm font-medium text-gray-700 mb-1">Caption/Excerpt <span class="text-red-600">*</span></label>
-                        <textarea id="caption" name="caption" rows="3" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">{{ old('caption', $news->caption) }}</textarea>
-                        @error('caption')
                             <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                         @enderror
                     </div>
@@ -67,21 +59,10 @@
                     </div>
 
                     <div>
-                        <label for="status" class="block text-sm font-medium text-gray-700 mb-1">Status <span class="text-red-600">*</span></label>
-                        <select id="status" name="status" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                            <option value="Draft" {{ old('status', $news->status) == 'Draft' ? 'selected' : '' }}>Draft</option>
-                            <option value="Published" {{ old('status', $news->status) == 'Published' ? 'selected' : '' }}>Published</option>
-                        </select>
-                        @error('status')
-                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
-                        @enderror
-                    </div>
-
-                    <div>
                         <label for="thumbnail" class="block text-sm font-medium text-gray-700 mb-1">Featured Image</label>
                         <div class="flex items-center space-x-4">
                             <div class="flex-shrink-0 h-24 w-36 bg-gray-100 rounded-md overflow-hidden border border-gray-200">
-                                <img id="thumbnail-preview" src="{{ asset($news->thumbnail) }}" alt="Thumbnail preview" class="h-full w-full object-cover">
+                                <img id="thumbnail-preview" src="{{ asset($news->thumbnail ?? 'images/thumbnail_placeholder.png') }}" alt="Thumbnail preview" class="h-full w-full object-cover">
                             </div>
                             <div class="flex-grow">
                                 <input type="file" id="thumbnail" name="thumbnail" accept="image/*" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-medium file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
@@ -89,15 +70,6 @@
                             </div>
                         </div>
                         @error('thumbnail')
-                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
-                        @enderror
-                    </div>
-
-                    <div>
-                        <label for="link" class="block text-sm font-medium text-gray-700 mb-1">External Link</label>
-                        <input type="url" id="link" name="link" value="{{ old('link', $news->link) }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                        <p class="mt-1 text-xs text-gray-500">Optional - link to competition details or registration</p>
-                        @error('link')
                             <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                         @enderror
                     </div>
@@ -124,8 +96,8 @@
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <label for="publish_date" class="block text-sm font-medium text-gray-700 mb-1">Publish Date</label>
-                        <input type="date" id="publish_date" name="publish_date" value="{{ old('publish_date', $news->publish_date) }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        <label for="publish_date" class="block text-sm font-medium text-gray-700 mb-1">Publish Date <span class="text-red-600">*</span></label>
+                        <input type="date" id="publish_date" name="publish_date" value="{{ old('publish_date', $news->publish_date->format('Y-m-d')) }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
                         @error('publish_date')
                             <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                         @enderror
@@ -144,7 +116,7 @@
 
             <!-- Form Actions -->
             <div class="flex items-center justify-end space-x-3 pt-6">
-                <button type="button" onclick="history.back()" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500">
+                <button type="button" onclick="window.location='{{ route('admin.news') }}'" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500">
                     Cancel
                 </button>
                 <button type="submit" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
@@ -155,10 +127,8 @@
     </div>
 </div>
 
-<!-- JavaScript for image preview -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Thumbnail preview
     const thumbnailInput = document.getElementById('thumbnail');
     const thumbnailPreview = document.getElementById('thumbnail-preview');
     
@@ -172,7 +142,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Auto generate slug from title
     const titleInput = document.getElementById('title');
     const slugInput = document.getElementById('slug');
     
@@ -187,4 +156,4 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
-@endsection 
+@endsection

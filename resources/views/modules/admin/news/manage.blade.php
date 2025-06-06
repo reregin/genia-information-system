@@ -8,7 +8,7 @@
             <h2 class="text-2xl font-semibold text-gray-800 mb-4 sm:mb-0">
                 Manage News
             </h2>
-            <a href="{{ route('admin.news.add') }}" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <a href="{{ route('admin.news.create') }}" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
                 </svg>
@@ -17,42 +17,33 @@
         </div>
 
         <!-- Filters -->
-        <div class="mb-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <form id="filter-form" class="mb-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <div>
                 <label for="level-filter" class="block text-sm font-medium text-gray-700 mb-1">Competition Level</label>
-                <select id="level-filter" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                <select id="level-filter" name="level" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                     <option value="">All Levels</option>
-                    <option value="International">International</option>
-                    <option value="Regional">Regional</option>
-                    <option value="National">National</option>
+                    <option value="International" {{ request('level') == 'International' ? 'selected' : '' }}>International</option>
+                    <option value="Regional" {{ request('level') == 'Regional' ? 'selected' : '' }}>Regional</option>
+                    <option value="National" {{ request('level') == 'National' ? 'selected' : '' }}>National</option>
                 </select>
             </div>
 
             <div>
                 <label for="competition-filter" class="block text-sm font-medium text-gray-700 mb-1">Competition</label>
-                <select id="competition-filter" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                <select id="competition-filter" name="competition" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                     <option value="">All Competitions</option>
-                    <option value="PKM">PKM</option>
-                    <option value="GELATIK">GELATIK</option>
-                    <option value="ON MIPA PT">ON MIPA PT</option>
-                    <option value="COMPFEST">COMPFEST</option>
-                </select>
-            </div>
-
-            <div>
-                <label for="status-filter" class="block text-sm font-medium text-gray-700 mb-1">Status</label>
-                <select id="status-filter" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                    <option value="">All Status</option>
-                    <option value="Published">Published</option>
-                    <option value="Draft">Draft</option>
+                    <option value="PKM" {{ request('competition') == 'PKM' ? 'selected' : '' }}>PKM</option>
+                    <option value="GELATIK" {{ request('competition') == 'GELATIK' ? 'selected' : '' }}>GELATIK</option>
+                    <option value="ON MIPA PT" {{ request('competition') == 'ON MIPA PT' ? 'selected' : '' }}>ON MIPA PT</option>
+                    <option value="COMPFEST" {{ request('competition') == 'COMPFEST' ? 'selected' : '' }}>COMPFEST</option>
                 </select>
             </div>
 
             <div>
                 <label for="search" class="block text-sm font-medium text-gray-700 mb-1">Search</label>
-                <input type="text" id="search" placeholder="Search news..." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                <input type="text" id="search" name="search" value="{{ request('search') }}" placeholder="Search news..." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
             </div>
-        </div>
+        </form>
 
         <!-- News Table -->
         <div class="overflow-x-auto">
@@ -64,7 +55,7 @@
                     <h3 class="mt-2 text-sm font-medium text-gray-900">No news yet</h3>
                     <p class="mt-1 text-sm text-gray-500">Get started by creating a new news post.</p>
                     <div class="mt-6">
-                        <a href="{{ route('admin.news.add') }}" class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                        <a href="{{ route('admin.news.create') }}" class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                             <svg class="-ml-1 mr-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                 <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
                             </svg>
@@ -79,7 +70,6 @@
                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Title</th>
                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Level</th>
                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Competition</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
                             <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
                         </tr>
@@ -108,18 +98,12 @@
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                 {{ $item->competition }}
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
-                                    {{ $item->status === 'Published' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800' }}">
-                                    {{ $item->status }}
-                                </span>
-                            </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                {{ $item->publish_date }}
+                                {{ $item->publish_date->format('Y-m-d') }}
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                <a href="{{ route('admin.news.edit', $item->id) }}" class="text-blue-600 hover:text-blue-900 mr-3">Edit</a>
-                                <button data-news-id="{{ $item->id }}" class="text-red-600 hover:text-red-900">Delete</button>
+                                <a href="{{ route('admin.news.edit', $item->slug) }}" class="text-blue-600 hover:text-blue-900 mr-3">Edit</a>
+                                <button data-news-id="{{ $item->id }}" onclick="deleteNews('{{ $item->id }}')" class="text-red-600 hover:text-red-900">Delete</button>
                             </td>
                         </tr>
                         @endforeach
@@ -143,10 +127,10 @@
         <h3 class="text-lg font-medium text-gray-900 mb-4">Confirm Delete</h3>
         <p class="text-gray-500 mb-6">Are you sure you want to delete this news? This action cannot be undone.</p>
         <div class="flex justify-end space-x-3">
-            <button href="{{ route('admin.news.edit', $item->id) }}" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200">
+            <button onclick="closeDeleteModal()" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200">
                 Cancel
             </button>
-            <button data-news-id="{{ $item->id }}" class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700">
+            <button id="confirmDelete" class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700">
                 Delete
             </button>
         </div>
@@ -170,7 +154,6 @@ function closeDeleteModal() {
 
 function confirmDelete() {
     if (newsIdToDelete) {
-        // Submit delete request
         fetch(`/admin/news/${newsIdToDelete}`, {
             method: 'DELETE',
             headers: {
@@ -180,17 +163,14 @@ function confirmDelete() {
             }
         }).then(response => {
             if (response.ok) {
-                // Remove the row from the table
                 const row = document.querySelector(`tr[data-news-id="${newsIdToDelete}"]`);
                 if (row) {
                     row.remove();
                 }
-                // If no more news items, show the empty state
                 const tbody = document.querySelector('tbody');
                 if (tbody && tbody.children.length === 0) {
                     window.location.reload();
                 }
-                // Show success message
                 alert('News deleted successfully');
             } else {
                 response.json().then(data => {
@@ -206,9 +186,7 @@ function confirmDelete() {
     }
 }
 
-// Add event listener for delete button clicks
 document.addEventListener('DOMContentLoaded', function() {
-    // Add click event listeners to all delete buttons
     document.querySelectorAll('button[onclick^="deleteNews"]').forEach(button => {
         button.addEventListener('click', function(e) {
             e.preventDefault();
@@ -218,14 +196,17 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-});
 
-// Filter functionality
-document.querySelectorAll('select[id$="-filter"], input#search').forEach(element => {
-    element.addEventListener('change', function() {
-        // Implement filter logic here
-        // You can collect all filter values and make an AJAX request to refresh the table
+    document.getElementById('confirmDelete').addEventListener('click', confirmDelete);
+
+    // Filter functionality
+    const filterForm = document.getElementById('filter-form');
+    const inputs = filterForm.querySelectorAll('select, input');
+    inputs.forEach(input => {
+        input.addEventListener('change', () => {
+            filterForm.submit();
+        });
     });
 });
 </script>
-@endsection 
+@endsection

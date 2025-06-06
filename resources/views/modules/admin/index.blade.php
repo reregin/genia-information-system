@@ -51,7 +51,7 @@
                     <a href="{{ route('admin.blog.create') }}" class="flex items-center justify-center p-4 text-center text-orange-600 rounded-lg bg-orange-50 hover:bg-orange-100 font-medium transition-colors">
                         New Blog Post
                     </a>
-                    <a href="{{ route('admin.news.add') }}" class="flex items-center justify-center p-4 text-center text-gray-600 rounded-lg bg-gray-100 hover:bg-gray-200 font-medium transition-colors">
+                    <a href="{{ route('admin.news.create') }}" class="flex items-center justify-center p-4 text-center text-gray-600 rounded-lg bg-gray-100 hover:bg-gray-200 font-medium transition-colors">
                         New News
                     </a>
                     <div class="hidden sm:flex p-4 text-center rounded-lg bg-gray-50 flex items-center justify-center text-gray-400">

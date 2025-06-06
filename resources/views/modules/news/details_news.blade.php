@@ -1,67 +1,31 @@
-@extends('layouts.app', [ 'path' => ['Beranda', 'News', 'Details'] ])
+@extends('layouts.app', ['path' => ['Beranda', 'News', 'Details']])
 
-<?php
-$news = (object)[
-  'title' => 'Mahasiswa UKM Genia Raih Juara 1 dalam Kompetisi PKM Nasional',
-  'excerpt' => 'Tim mahasiswa dari UKM Genia berhasil meraih prestasi gemilang dalam ajang Pekan Kreativitas Mahasiswa (PKM) tingkat nasional dengan inovasi teknologi berkelanjutan.',
-  'content' => '<p>Dalam ajang bergengsi Pekan Kreativitas Mahasiswa (PKM) tingkat nasional yang diselenggarakan oleh Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi, tim mahasiswa dari UKM Genia berhasil menorehkan prestasi membanggakan dengan meraih juara 1 dalam kategori PKM-KC (Karsa Cipta).</p>
-
-<h2>Inovasi Berkelanjutan</h2>
-<p>Tim yang terdiri dari lima mahasiswa ini mengembangkan sebuah sistem inovatif yang menggabungkan teknologi IoT dengan konsep berkelanjutan untuk mengatasi permasalahan pengelolaan sampah di perkotaan. Solusi yang mereka tawarkan tidak hanya efektif tetapi juga ramah lingkungan.</p>
-
-<h2>Dampak dan Potensi</h2>
-<p>Inovasi ini dinilai memiliki potensi besar untuk diterapkan secara luas dan memberikan dampak positif bagi masyarakat. Dewan juri mengapresiasi pendekatan komprehensif tim dalam menyelesaikan permasalahan dengan mempertimbangkan aspek teknologi, sosial, dan lingkungan.</p>
-
-<h2>Dukungan dan Bimbingan</h2>
-<p>Keberhasilan ini tidak lepas dari dukungan penuh universitas dan bimbingan intensif dari para dosen pembimbing. UKM Genia terus berkomitmen untuk mendorong inovasi dan kreativitas mahasiswa dalam mengembangkan solusi teknologi yang bermanfaat bagi masyarakat.</p>
-
-<h2>Rencana Ke Depan</h2>
-<p>Tim berencana untuk mengembangkan lebih lanjut inovasi mereka dan berharap dapat mengimplementasikannya dalam skala yang lebih luas. Prestasi ini juga diharapkan dapat memotivasi mahasiswa lain untuk terus berkarya dan berinovasi.</p>',
-  'featured_image' => 'news-pkm.jpg',
-  'category' => 'Competition',
-  'level' => 'National',
-  'author_name' => "Tim Humas Genia",
-  'published' => true,
-  'created_at' => \Carbon\Carbon::parse('2024-03-15 10:00:00'),
-  'updated_at' => \Carbon\Carbon::parse('2024-03-15 10:00:00'),
-];
-?>
+@section('title', '{{ $newsItem->title }}')
 
 @section('content')
 <div class="container mx-auto px-4 py-8 max-w-4xl">
     <!-- Article Header -->
     <div class="mb-8">
         <div class="flex items-center gap-3 mb-4">
-            <span class="inline-block bg-blue-100 text-blue-600 px-2 py-1 text-xs font-medium rounded">{{ $news->category }}</span>
-            <span class="inline-block bg-green-100 text-green-600 px-2 py-1 text-xs font-medium rounded">{{ $news->level }}</span>
-            <span class="text-gray-500 text-sm">{{ $news->created_at->format('F j, Y') }}</span>
+            <span class="inline-block bg-blue-100 text-blue-600 px-2 py-1 text-xs font-medium rounded">{{ $newsItem->level }}</span>
+            <span class="inline-block bg-green-100 text-green-600 px-2 py-1 text-xs font-medium rounded">{{ $newsItem->competition }}</span>
+            <span class="text-gray-500 text-sm">{{ $newsItem->publish_date->format('F j, Y') }}</span>
         </div>
-        <h1 class="text-3xl md:text-4xl font-bold mb-6">{{ $news->title }}</h1>
-        
-        <!-- Author info -->
-        <div class="flex items-center mb-6">
-            <div class="h-10 w-10 rounded-full bg-gray-300 overflow-hidden">
-                <img src="{{ asset('images/avatar1.png') }}" alt="" class="w-full h-full object-cover">
-            </div>
-            <div class="ml-3">
-                <p class="text-gray-800 font-medium">{{ $news->author_name }}</p>
-                <p class="text-gray-500 text-sm">News Team</p>
-            </div>
-        </div>
+        <h1 class="text-3xl md:text-4xl font-bold mb-6">{{ $newsItem->title }}</h1>
     </div>
     
     <!-- Featured Image -->
-    @if($news->featured_image)
+    @if($newsItem->thumbnail)
     <div class="mb-8">
-        <img src="{{ asset('images/'.$news->featured_image) }}" 
-             alt="{{ $news->title }}" 
+        <img src="{{ asset($newsItem->thumbnail) }}" 
+             alt="{{ $newsItem->title }}" 
              class="w-full h-auto rounded-lg shadow-md">
     </div>
     @endif
     
     <!-- Article Content -->
     <div class="prose prose-lg max-w-none">
-        {!! html_entity_decode($news->content) !!}
+        {!! $newsItem->content !!}
     </div>
     
     <!-- Share Section -->
@@ -88,7 +52,7 @@ $news = (object)[
     
     <!-- Back to News Link -->
     <div class="mt-12">
-        <a href="{{ route('news') }}" class="inline-flex items-center text-blue-600 hover:text-blue-800">
+        <a href="{{ route('news.index') }}" class="inline-flex items-center text-blue-600 hover:text-blue-800">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
             </svg>
@@ -96,4 +60,4 @@ $news = (object)[
         </a>
     </div>
 </div>
-@endsection 
+@endsection

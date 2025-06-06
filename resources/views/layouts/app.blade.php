@@ -42,7 +42,7 @@
                     <a href="{{ route('awarded') }}" class="block py-2 px-3 text-gray-700 hover:text-blue-700">Awarded</a>
                     <a href="{{ route('competition') }}" class="block py-2 px-3 text-gray-700 hover:text-blue-700">Competition</a>
                     <a href="{{ route('blog') }}" class="block py-2 px-3 text-gray-700 hover:text-blue-700">Blog</a>
-                    <a href="{{ route('news') }}" class="block py-2 px-3 text-gray-700 hover:text-blue-700">News</a>
+                    <a href="{{ route('news.index') }}" class="block py-2 px-3 text-gray-700 hover:text-blue-700">News</a>
                 </div>
             </div>
 
