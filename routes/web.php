@@ -4,9 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BlogController;
-
 use App\Http\Controllers\AdminBlogController;
-
+use App\Http\Controllers\ThumbnailController;
 
 // ====================
 // LANDING
@@ -85,19 +84,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::delete('/news/{news}', [App\Http\Controllers\AdminNewsController::class, 'destroy'])->name('news.destroy');
         // Blog
         Route::get('/blog', [AdminBlogController::class, 'index'])->name('blog');
-        Route::get('/blog/add', [AdminBlogController::class, 'create'])->name('blog.add');
+        Route::get('/blog/add', [AdminBlogController::class, 'create'])->name('blog.create');
         Route::post('/blog/add', [AdminBlogController::class, 'store'])->name('blog.store');
         Route::get('/blog/edit/{blog?}', [AdminBlogController::class, 'edit'])->name('blog.edit');
         Route::put('/blog/edit/{blog}', [AdminBlogController::class, 'update'])->name('blog.update');
-        Route::delete('/{blog}', [AdminBlogController::class, 'destroy'])->name('blog.delete');
-
-        Route::get('/blog/add', function () {
-            return view('modules.admin.blog.add');
-        })->name('blog.add');
-
-        Route::get('/blog/edit', function () {
-            return view('modules.admin.blog.edit');
-        })->name('blog.edit');
+        Route::delete('/blog/{blog}', [AdminBlogController::class, 'destroy'])->name('blog.destroy');
 
     });
 });

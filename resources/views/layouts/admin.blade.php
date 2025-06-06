@@ -135,8 +135,8 @@
         if (window.innerWidth < 768) {
              sidebar.classList.add('-translate-x-full');
         }
-
     </script>
 
+    @stack('scripts')
 </body>
 </html>

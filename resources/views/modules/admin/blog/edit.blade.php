@@ -1,52 +1,3 @@
-<?php
-$post = (object)[
-  'title' => 'Mastering UI Design: Creating Intuitive User Experiences',
-  'slug' => 'mastering-ui-design-creating-intuitive-user-experiences',
-  'excerpt' => 'Learn the principles of effective UI design and how to create interfaces that users love and understand intuitively.',
-  'content' => '<p>Good user interface (UI) design is essential for creating digital products that are not only visually appealing but also easy to use and understand. In this article, we\'ll explore the fundamental principles of UI design and how you can apply them to create intuitive user experiences.</p>
-
-<h2>Understanding User Needs</h2>
-<p>Before diving into the design process, it\'s crucial to understand who your users are and what they need. This involves conducting user research, creating personas, and mapping out user journeys. By understanding your users\' goals, pain points, and preferences, you can design interfaces that cater specifically to their needs.</p>
-
-<h2>Key Principles of Effective UI Design</h2>
-
-<h3>1. Clarity</h3>
-<p>Your interface should be clear and straightforward. Users should be able to quickly understand what your product does and how to use it. Use simple language, clear labels, and intuitive icons to guide users through your interface.</p>
-
-<h3>2. Consistency</h3>
-<p>Consistency in design elements, such as buttons, colors, and typography, helps users learn and navigate your interface more easily. When elements look and behave consistently, users can apply what they\'ve learned from one part of your interface to another.</p>
-
-<h3>3. Hierarchy</h3>
-<p>Visual hierarchy helps guide users\' attention to the most important elements first. Use size, color, contrast, and spacing to create a clear hierarchy of information on your screen.</p>
-
-<h3>4. Feedback</h3>
-<p>Provide clear feedback for user actions. This could be as simple as changing the color of a button when it\'s clicked or showing a loading indicator when a process is running. Feedback helps users understand that their actions have been registered and that the system is responding.</p>
-
-<h2>Creating Intuitive Navigation</h2>
-<p>Navigation is a critical aspect of UI design. Users should be able to easily find what they\'re looking for and understand where they are in your product. Here are some tips for creating intuitive navigation:</p>
-
-<ul>
-<li>Use clear, descriptive labels for navigation items</li>
-<li>Implement consistent navigation patterns across your product</li>
-<li>Provide breadcrumbs or other indicators to show users where they are</li>
-<li>Limit the number of navigation options to avoid overwhelming users</li>
-</ul>
-
-<h2>Designing for Accessibility</h2>
-<p>Inclusive design ensures that your product is usable by people with diverse abilities and needs. Consider factors such as color contrast, text size, and keyboard navigation when designing your interface. Making your product accessible not only helps users with disabilities but often improves the experience for all users.</p>
-
-<h2>Testing and Iteration</h2>
-<p>The best way to ensure your UI design is intuitive is to test it with real users. Conduct usability testing to identify any pain points or areas of confusion in your interface. Use the feedback you gather to iterate on your design and make improvements.</p>
-
-<p>Remember, creating intuitive user experiences is an ongoing process. As you gather more user feedback and as user needs evolve, continue to refine and improve your design to ensure it remains intuitive and effective.</p>',
-  'featured_image' => 'blog (1).jpg',
-  'category' => 'Technology',
-  'author_name' => "Alex Doe",
-  'published' => true,
-  'created_at' => \Carbon\Carbon::parse('2025-05-10 10:00:00'),
-  'updated_at' => \Carbon\Carbon::parse('2025-05-10 10:00:00'),
-];
-?>
 @extends('layouts.admin')
 
 @section('admin-content')
@@ -55,15 +6,20 @@ $post = (object)[
         <div class="flex items-center mb-6">
             <a href="{{ route('admin.blog') }}" class="mr-3 text-gray-500 hover:text-gray-700">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                    <path fill-rule="evenodd"
+                          d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
+                          clip-rule="evenodd" />
                 </svg>
             </a>
             <h2 class="text-2xl font-semibold text-gray-800">
-                Edit Blog Post
+                Edit Blog Post: {{ $blog->title }}
             </h2>
         </div>
 
-        <form action="" method="POST" enctype="multipart/form-data" class="space-y-6">
+        <form action="{{ route('admin.blog.update', $blog->id) }}"
+              method="POST"
+              enctype="multipart/form-data"
+              class="space-y-6">
             @csrf
             @method('PUT')
             
@@ -72,73 +28,181 @@ $post = (object)[
                 <h3 class="text-lg font-medium text-gray-900 mb-4">Blog Information</h3>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Title -->
                     <div class="col-span-1 md:col-span-2">
-                        <label for="title" class="block text-sm font-medium text-gray-700 mb-1">Blog Title <span class="text-red-600">*</span></label>
-                        <input type="text" id="title" name="title" required value="{{ old('title', $post->title) }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        <label for="title" class="block text-sm font-medium text-gray-700 mb-1">
+                            Blog Title <span class="text-red-600">*</span>
+                        </label>
+                        <input
+                            type="text"
+                            id="title"
+                            name="title"
+                            required
+                            value="{{ old('title', $blog->title) }}"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        >
                         @error('title')
                             <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                         @enderror
                     </div>
 
+                    <!-- Caption / Excerpt -->
                     <div class="col-span-1 md:col-span-2">
-                        <label for="caption" class="block text-sm font-medium text-gray-700 mb-1">Caption/Excerpt <span class="text-red-600">*</span></label>
-                        <textarea id="caption" name="caption" rows="3" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">{{ old('caption', $post->excerpt) }}</textarea>
+                        <label for="caption" class="block text-sm font-medium text-gray-700 mb-1">
+                            Caption/Excerpt <span class="text-red-600">*</span>
+                        </label>
+                        <textarea
+                            id="caption"
+                            name="caption"
+                            rows="3"
+                            required
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        >{{ old('caption', $blog->caption) }}</textarea>
                         @error('caption')
                             <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                         @enderror
                     </div>
 
+                    <!-- Category -->
                     <div>
-                        <label for="category" class="block text-sm font-medium text-gray-700 mb-1">Category <span class="text-red-600">*</span></label>
-                        <select id="category" name="category" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        <label for="category_id" class="block text-sm font-medium text-gray-700 mb-1">
+                            Category <span class="text-red-600">*</span>
+                        </label>
+                        <select
+                            id="category_id"
+                            name="category_id"
+                            required
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        >
                             <option value="">Select Category</option>
-                            <option value="Technology" {{ old('category', $post->category) == 'Technology' ? 'selected' : '' }}>Technology</option>
-                            <option value="Design" {{ old('category', $post->category) == 'Design' ? 'selected' : '' }}>Design</option>
-                            <option value="Business" {{ old('category', $post->category) == 'Business' ? 'selected' : '' }}>Business</option>
-                            <option value="Education" {{ old('category', $post->category) == 'Education' ? 'selected' : '' }}>Education</option>
+                            @foreach ($categories as $category)
+                                <option
+                                    value="{{ $category->id }}"
+                                    {{ (old('category_id', $blog->category_id) == $category->id) ? 'selected' : '' }}
+                                >
+                                    {{ ucfirst($category->name) }}
+                                </option>
+                            @endforeach
                         </select>
-                        @error('category')
+                        @error('category_id')
                             <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                         @enderror
                     </div>
 
+                    <!-- Author -->
                     <div>
-                        <label for="status" class="block text-sm font-medium text-gray-700 mb-1">Status <span class="text-red-600">*</span></label>
-                        <select id="status" name="status" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                            <option value="Draft" {{ old('status', $post->published ? 'Published' : 'Draft') == 'Draft' ? 'selected' : '' }}>Draft</option>
-                            <option value="Published" {{ old('status', $post->published ? 'Published' : 'Draft') == 'Published' ? 'selected' : '' }}>Published</option>
+                        <label for="author_id" class="block text-sm font-medium text-gray-700 mb-1">
+                            Author <span class="text-red-600">*</span>
+                        </label>
+                        <select
+                            id="author_id"
+                            name="author_id"
+                            required
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        >
+                            <option value="">Select Author</option>
+                            @foreach ($authors as $author)
+                                <option
+                                    value="{{ $author->id }}"
+                                    {{ (old('author_id', $blog->author_id) == $author->id) ? 'selected' : '' }}
+                                >
+                                    {{ $author->name }} - {{ $author->department }}
+                                </option>
+                            @endforeach
                         </select>
-                        @error('status')
+                        @error('author_id')
                             <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                         @enderror
                     </div>
 
+                    <!-- Publish Date (Read-only) -->
                     <div>
-                        <label for="author_name" class="block text-sm font-medium text-gray-700 mb-1">Author Name <span class="text-red-600">*</span></label>
-                        <input type="text" id="author_name" name="author_name" required value="{{ old('author_name', $post->author_name) }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                        @error('author_name')
+                        <label for="publish_date_display" class="block text-sm font-medium text-gray-700 mb-1">
+                            Published On
+                        </label>
+                        <input
+                            type="text"
+                            id="publish_date_display"
+                            readonly
+                            value="{{ $blog->publish_date ? $blog->publish_date->format('M d, Y \a\t g:i A') : 'Not published yet' }}"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg bg-gray-50 text-gray-600 cursor-not-allowed"
+                        >
+                        <p class="mt-1 text-xs text-gray-500">
+                            Publish date is automatically set and cannot be changed.
+                        </p>
+                    </div>
+
+                    <!-- Featured Toggle -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">
+                            Featured Post
+                        </label>
+                        <div class="flex items-center">
+                            <input
+                                type="hidden"
+                                name="is_featured"
+                                value="0"
+                            >
+                            <input
+                                type="checkbox"
+                                id="is_featured"
+                                name="is_featured"
+                                value="1"
+                                {{ old('is_featured', $blog->is_featured) ? 'checked' : '' }}
+                                class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                            >
+                            <label for="is_featured" class="ml-2 text-sm text-gray-700">
+                                Mark as featured post
+                            </label>
+                        </div>
+                        @error('is_featured')
                             <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                         @enderror
                     </div>
 
-                    <div>
-                        <label for="author_dept" class="block text-sm font-medium text-gray-700 mb-1">Author Department/Role <span class="text-red-600">*</span></label>
-                        <input type="text" id="author_dept" name="author_dept" required value="{{ old('author_dept', 'Lead Developer') }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                        @error('author_dept')
-                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
-                        @enderror
-                    </div>
-
-                    <div>
-                        <label for="thumbnail" class="block text-sm font-medium text-gray-700 mb-1">Featured Image</label>
+                    <!-- Featured Image / Thumbnail -->
+                    <div class="md:col-span-2">
+                        <label for="thumbnail" class="block text-sm font-medium text-gray-700 mb-1">
+                            Featured Image
+                        </label>
                         <div class="flex items-center space-x-4">
                             <div class="flex-shrink-0 h-24 w-36 bg-gray-100 rounded-md overflow-hidden border border-gray-200">
-                                <img id="thumbnail-preview" src="{{ asset('images/' . $post->featured_image) }}" alt="Thumbnail preview" class="h-full w-full object-cover">
+                                @if($blog->thumbnail)
+                                    <img
+                                        id="thumbnail-preview"
+                                        src="{{ asset('storage/' . $blog->thumbnail) }}"
+                                        alt="Thumbnail preview"
+                                        class="h-full w-full object-cover"
+                                    >
+                                @else
+                                    <div id="thumbnail-preview" class="h-full w-full flex items-center justify-center text-gray-400">
+                                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                        </svg>
+                                    </div>
+                                @endif
                             </div>
                             <div class="flex-grow">
-                                <input type="file" id="thumbnail" name="thumbnail" accept="image/*" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-medium file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
-                                <p class="mt-1 text-xs text-gray-500">Recommended: 16:9 ratio, 1200x675px or larger</p>
-                                <p class="mt-1 text-xs text-gray-500">Current image: {{ $post->featured_image }}</p>
+                                <input
+                                    type="file"
+                                    id="thumbnail"
+                                    name="thumbnail"
+                                    accept="image/*"
+                                    class="w-full text-sm text-gray-500
+                                           file:mr-4 file:py-2 file:px-4
+                                           file:rounded-md file:border-0
+                                           file:text-sm file:font-medium
+                                           file:bg-blue-50 file:text-blue-700
+                                           hover:file:bg-blue-100"
+                                >
+                                <p class="mt-1 text-xs text-gray-500">
+                                    Recommended: 16:9 ratio, 1200×675px or larger. Max size: 2MB
+                                </p>
+                                @if($blog->thumbnail)
+                                    <p class="mt-1 text-xs text-gray-500">
+                                        Current: {{ basename($blog->thumbnail) }}
+                                    </p>
+                                @endif
                             </div>
                         </div>
                         @error('thumbnail')
@@ -146,10 +210,22 @@ $post = (object)[
                         @enderror
                     </div>
 
-                    <div>
-                        <label for="link" class="block text-sm font-medium text-gray-700 mb-1">External Link</label>
-                        <input type="url" id="link" name="link" value="{{ old('link', 'https://test') }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                        <p class="mt-1 text-xs text-gray-500">Optional - link to external content</p>
+                    <!-- External Link -->
+                    <div class="md:col-span-2">
+                        <label for="link" class="block text-sm font-medium text-gray-700 mb-1">
+                            External Link
+                        </label>
+                        <input
+                            type="url"
+                            id="link"
+                            name="link"
+                            value="{{ old('link', $blog->link) }}"
+                            placeholder="https://example.com"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        >
+                        <p class="mt-1 text-xs text-gray-500">
+                            Optional – link to external content or source
+                        </p>
                         @error('link')
                             <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                         @enderror
@@ -162,8 +238,17 @@ $post = (object)[
                 <h3 class="text-lg font-medium text-gray-900 mb-4">Blog Content</h3>
                 
                 <div>
-                    <label for="content" class="block text-sm font-medium text-gray-700 mb-1">Content <span class="text-red-600">*</span></label>
-                    <textarea id="content" name="content" rows="15" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">{{ old('content', $post->content) }}</textarea>
+                    <label for="content" class="block text-sm font-medium text-gray-700 mb-1">
+                        Content <span class="text-red-600">*</span>
+                    </label>
+                    <textarea
+                        id="content"
+                        name="content"
+                        rows="15"
+                        required
+                        placeholder="Write your blog content here..."
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-mono text-sm"
+                    >{{ old('content', $blog->content) }}</textarea>
                     <p class="mt-1 text-xs text-gray-500">HTML formatting is supported</p>
                     @error('content')
                         <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -171,74 +256,92 @@ $post = (object)[
                 </div>
             </div>
 
-            <!-- Publish Settings -->
-            <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
-                <h3 class="text-lg font-medium text-gray-900 mb-4">Publish Settings</h3>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                        <label for="publish_date" class="block text-sm font-medium text-gray-700 mb-1">Publish Date</label>
-                        <input type="date" id="publish_date" name="publish_date" value="{{ old('publish_date', $post->created_at->format('Y-m-d')) }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                        @error('publish_date')
-                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
-                        @enderror
-                    </div>
-                    
-                    <div>
-                        <label for="slug" class="block text-sm font-medium text-gray-700 mb-1">URL Slug</label>
-                        <input type="text" id="slug" name="slug" value="{{ old('slug', $post->slug) }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                        <p class="mt-1 text-xs text-gray-500">Leave empty to auto-generate from title</p>
-                        @error('slug')
-                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
-                        @enderror
-                    </div>
-                </div>
-            </div>
-
             <!-- Form Actions -->
-            <div class="flex items-center justify-end space-x-3 pt-6">
-                <button type="button" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500">
-                    Cancel
-                </button>
-                <button type="submit" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    Update Blog Post
-                </button>
+            <div class="flex items-center justify-between pt-6 border-t border-gray-200">
+                <div class="text-sm text-gray-500">
+                    Last updated: {{ $blog->updated_at->format('M d, Y \a\t g:i A') }}
+                </div>
+                <div class="flex items-center space-x-3">
+                    <a
+                        href="{{ route('admin.blog') }}"
+                        class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors"
+                    >
+                        Cancel
+                    </a>
+                    <button
+                        type="submit"
+                        class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
+                    >
+                        Update Blog Post
+                    </button>
+                </div>
             </div>
         </form>
     </div>
 </div>
 
-<!-- JavaScript for image preview -->
+{{-- JavaScript for enhanced functionality --}}
+@push('scripts')
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Thumbnail preview
+    // Thumbnail preview functionality
     const thumbnailInput = document.getElementById('thumbnail');
     const thumbnailPreview = document.getElementById('thumbnail-preview');
     
-    thumbnailInput.addEventListener('change', function() {
-        if (this.files && this.files[0]) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                thumbnailPreview.src = e.target.result;
-            };
-            reader.readAsDataURL(this.files[0]);
-        }
-    });
+    if (thumbnailInput && thumbnailPreview) {
+        thumbnailInput.addEventListener('change', function() {
+            if (this.files && this.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    // If preview is an img element, update src
+                    if (thumbnailPreview.tagName === 'IMG') {
+                        thumbnailPreview.src = e.target.result;
+                    } else {
+                        // If preview is a div, replace with img
+                        thumbnailPreview.innerHTML = `<img src="${e.target.result}" alt="Thumbnail preview" class="h-full w-full object-cover">`;
+                    }
+                };
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+    }
     
-    // Auto generate slug from title
-    const titleInput = document.getElementById('title');
-    const slugInput = document.getElementById('slug');
-    
-    titleInput.addEventListener('blur', function() {
-        if (slugInput.value === '') {
-            slugInput.value = titleInput.value
-                .toLowerCase()
-                .replace(/[^\w\s-]/g, '')
-                .replace(/[\s_-]+/g, '-')
-                .replace(/^-+|-+$/g, '');
+    // Form validation enhancement
+    const form = document.querySelector('form');
+    form.addEventListener('submit', function(e) {
+        const requiredFields = form.querySelectorAll('[required]');
+        let isValid = true;
+        
+        requiredFields.forEach(field => {
+            if (!field.value.trim()) {
+                isValid = false;
+                field.classList.add('border-red-500');
+            } else {
+                field.classList.remove('border-red-500');
+            }
+        });
+        
+        if (!isValid) {
+            e.preventDefault();
+            // Show error message
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'fixed top-4 right-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded z-50';
+            errorDiv.innerHTML = `
+                <div class="flex items-center">
+                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                    </svg>
+                    Please fill in all required fields
+                </div>
+            `;
+            document.body.appendChild(errorDiv);
+            
+            setTimeout(() => {
+                errorDiv.remove();
+            }, 5000);
         }
     });
 });
 </script>
-
+@endpush
 @endsection
