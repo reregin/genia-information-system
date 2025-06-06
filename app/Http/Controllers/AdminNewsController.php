@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -8,128 +8,101 @@ use App\Models\News;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
-class NewsController extends Controller
+class AdminNewsController extends Controller
 {
-    /**
-     * Display a listing of the news.
-     */
-    public function index()
+    public function index(Request $request)
     {
-        $news = News::orderBy('publish_date', 'desc')->paginate(10);
-        return view('Modules.Admin.News.Manage', compact('news'));
+        $query = News::orderBy('publish_date', 'desc');
+
+        if ($request->has('level') && $request->level !== '') {
+            $query->level($request->level);
+        }
+
+        if ($request->has('competition') && $request->competition !== '') {
+            $query->competition($request->competition);
+        }
+
+        if ($request->has('search') && $request->search !== '') {
+            $query->where('title', 'like', '%' . $request->search . '%');
+        }
+
+        $news = $query->paginate(10)->appends($request->query());
+        return view('modules.admin.news.manage', compact('news'));
     }
 
-    /**
-     * Show the form for creating a new news.
-     */
     public function create()
     {
-        return view('Modules.Admin.News.Add');
+        return view('modules.admin.news.add');
     }
 
-    /**
-     * Store a newly created news in storage.
-     */
     public function store(Request $request)
     {
-        // Validate input
         $validated = $request->validate([
             'title' => 'required|max:255',
-            'caption' => 'required',
+            'content' => 'required',
             'level' => 'required|in:International,Regional,National',
             'competition' => 'required|in:PKM,GELATIK,ON MIPA PT,COMPFEST',
-            'status' => 'required|in:Draft,Published',
-            'content' => 'required',
             'publish_date' => 'required|date',
-            'slug' => 'nullable|unique:news,slug',
             'thumbnail' => 'required|image|max:2048',
-            'link' => 'nullable|url'
+            'slug' => 'nullable|unique:news,slug',
         ]);
 
-        // Handle file upload
         if ($request->hasFile('thumbnail')) {
             $path = $request->file('thumbnail')->store('news/thumbnails', 'public');
-            $validated['thumbnail'] = 'storage/' . $path;
+            $validated['thumbnail'] = $path;
         }
 
-        // Generate slug if not provided
         if (empty($validated['slug'])) {
             $validated['slug'] = Str::slug($validated['title']);
         }
 
-        // Create news
         News::create($validated);
 
-        return redirect()->route('admin.news')->with('success', 'News created successfully');
+        return redirect()->route('admin.news')->with('success', 'News created successfully!');
     }
 
-    /**
-     * Show the form for editing the specified news.
-     */
-    public function edit($id)
+    public function edit(News $news)
     {
-        $news = News::findOrFail($id);
-        return view('Modules.Admin.News.Edit', compact('news'));
+        return view('modules.admin.news.edit', compact('news'));
     }
 
-    /**
-     * Update the specified news in storage.
-     */
-    public function update(Request $request, $id)
+    public function update(Request $request, News $news)
     {
-        $news = News::findOrFail($id);
-
-        // Validate input
         $validated = $request->validate([
             'title' => 'required|max:255',
-            'caption' => 'required',
+            'content' => 'required',
             'level' => 'required|in:International,Regional,National',
             'competition' => 'required|in:PKM,GELATIK,ON MIPA PT,COMPFEST',
-            'status' => 'required|in:Draft,Published',
-            'content' => 'required',
             'publish_date' => 'required|date',
-            'slug' => 'nullable|unique:news,slug,' . $id,
             'thumbnail' => 'nullable|image|max:2048',
-            'link' => 'nullable|url'
+            'slug' => 'nullable|unique:news,slug,' . $news->id,
         ]);
 
-        // Handle file upload
         if ($request->hasFile('thumbnail')) {
-            // Delete old thumbnail if exists
-            if ($news->thumbnail && Storage::disk('public')->exists(str_replace('storage/', '', $news->thumbnail))) {
-                Storage::disk('public')->delete(str_replace('storage/', '', $news->thumbnail));
+            if ($news->thumbnail && Storage::disk('public')->exists($news->thumbnail)) {
+                Storage::disk('public')->delete($news->thumbnail);
             }
-            
             $path = $request->file('thumbnail')->store('news/thumbnails', 'public');
-            $validated['thumbnail'] = 'storage/' . $path;
+            $validated['thumbnail'] = $path;
         }
 
-        // Generate slug if not provided
         if (empty($validated['slug'])) {
             $validated['slug'] = Str::slug($validated['title']);
         }
 
-        // Update news
         $news->update($validated);
 
-        return redirect()->route('admin.news')->with('success', 'News updated successfully');
+        return redirect()->route('admin.news')->with('success', 'News updated successfully!');
     }
 
-    /**
-     * Remove the specified news from storage.
-     */
-    public function destroy($id)
+    public function destroy(News $news)
     {
-        $news = News::findOrFail($id);
-        
-        // Delete thumbnail if exists
-        if ($news->thumbnail && Storage::disk('public')->exists(str_replace('storage/', '', $news->thumbnail))) {
-            Storage::disk('public')->delete(str_replace('storage/', '', $news->thumbnail));
+        if ($news->thumbnail && Storage::disk('public')->exists($news->thumbnail)) {
+            Storage::disk('public')->delete($news->thumbnail);
         }
-        
+
         $news->delete();
 
-        // Flash success message
         return response()->json([
             'success' => true,
             'message' => 'News deleted successfully'
