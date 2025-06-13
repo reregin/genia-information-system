@@ -1,2 +1,8 @@
 [phases.setup]
-nixPkgs = ['php', 'php81Extensions.pdo', 'php81Extensions.mysqlnd', 'nodejs']
+nixPkgs = ['php', 'php81Extensions.pdo', 'php81Extensions.mysqlnd', 'nodejs', 'composer']
+
+[phases.build]
+cmds = ['npm install', 'npm run build', 'composer install --ignore-platform-reqs --no-dev --optimize-autoloader']
+
+[phases.migrate]
+cmds = ['php artisan migrate --force']
